@@ -10,18 +10,22 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-center px-6 pt-24 pb-20">
       <div className="absolute inset-0 bg-gradient-to-br from-[#080f20] via-[#0d1b3e] to-[#132150]" />
-      <video
-        className={`absolute inset-0 h-full w-full object-cover object-[50%_64%] transition-opacity duration-1000 md:object-[50%_68%] ${
+      <div
+        className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ${
           introComplete ? "opacity-35 mix-blend-screen" : "opacity-100"
         }`}
-        autoPlay
-        muted
-        playsInline
-        onEnded={() => setIntroComplete(true)}
         aria-hidden="true"
       >
-        <source src="/brand/indys-logo-animation.mp4" type="video/mp4" />
-      </video>
+        <video
+          className="absolute left-1/2 top-[59%] h-[112%] w-[112%] -translate-x-1/2 -translate-y-1/2 object-cover md:top-[63%]"
+          autoPlay
+          muted
+          playsInline
+          onEnded={() => setIntroComplete(true)}
+        >
+          <source src="/brand/indys-logo-animation.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div
         className={`absolute inset-0 bg-[#080f20] transition-opacity duration-1000 ${
           introComplete ? "opacity-70" : "opacity-0"
