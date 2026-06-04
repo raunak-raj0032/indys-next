@@ -11,7 +11,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-center px-6 pt-24 pb-20">
       <div className="absolute inset-0 bg-gradient-to-br from-[#080f20] via-[#0d1b3e] to-[#132150]" />
       <video
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+        className={`absolute inset-0 h-full w-full object-cover object-[50%_64%] transition-opacity duration-1000 md:object-[50%_68%] ${
           introComplete ? "opacity-35 mix-blend-screen" : "opacity-100"
         }`}
         autoPlay
