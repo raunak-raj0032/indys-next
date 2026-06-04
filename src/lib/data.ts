@@ -7,6 +7,8 @@ export const committees = [
     subtitle: "The Himalayan Dialogue",
     description:
       "The committee unique to INDYS and to no other MUN conference in the world. Indian and Nepali delegates negotiate directly — trade, transit, water rights, and people-to-people connectivity — as representatives of their own nations. This is not simulation. This is the relationship this conference was built to strengthen.",
+    logo: "/brand/regional-body.png",
+    logoAlt: "Regional Body committee mark",
     featured: true,
     span: "full",
   },
@@ -18,6 +20,8 @@ export const committees = [
     subtitle: null,
     description:
       "The crown jewel of any MUN program. Chosen with a specifically regional agenda — Himalayan border tensions, water rights disputes, and the India-China-Nepal triangle. Only 15 delegates, intense debate, highest difficulty. The most coveted committee at the summit.",
+    logo: "/brand/un-emblem.png",
+    logoAlt: "United Nations committee mark",
     featured: false,
     span: "single",
   },
@@ -29,6 +33,8 @@ export const committees = [
     subtitle: null,
     description:
       "Human rights in the digital age is the most urgent issue for both India and Nepal's Gen Z population. Relevant to tech companies as potential sponsors and gives delegates a genuinely contemporary issue to wrestle with.",
+    logo: "/brand/un-human-rights.png",
+    logoAlt: "UN Human Rights committee mark",
     featured: false,
     span: "single",
   },
@@ -40,6 +46,8 @@ export const committees = [
     subtitle: null,
     description:
       "Essential for inclusivity and for attracting women-focused brand sponsors. South Asia is one of the world's worst regions for female economic participation — this committee is personally relevant for every delegate from India and Nepal.",
+    logo: "/brand/un-women.png",
+    logoAlt: "UN Women committee mark",
     featured: false,
     span: "single",
   },
@@ -51,6 +59,8 @@ export const committees = [
     subtitle: "UNGA First Committee",
     description:
       "Covers cutting-edge topics in autonomous weapons, cyber warfare, and arms control — highly relevant to the regional security landscape shaping Indo-Nepal relations.",
+    logo: "/brand/un-emblem.png",
+    logoAlt: "United Nations committee mark",
     featured: false,
     span: "single",
   },
@@ -62,6 +72,8 @@ export const committees = [
     subtitle: "Indian Parliament",
     description:
       "Delegates simulate Indian political parties debating a live, real-world issue — the renegotiation of the foundational India-Nepal treaty. High drama, high context, very shareable content.",
+    logo: "/brand/regional-body.png",
+    logoAlt: "Regional Body committee mark",
     featured: false,
     span: "single",
   },
@@ -73,6 +85,8 @@ export const committees = [
     subtitle: null,
     description:
       "The United Nations' dedicated forum for post-conflict reconstruction and institution-building. Delegates design governance frameworks, reconciliation processes, and economic recovery plans for real post-conflict states.",
+    logo: "/brand/un-emblem.png",
+    logoAlt: "United Nations committee mark",
     featured: false,
     span: "single",
   },
@@ -84,6 +98,8 @@ export const committees = [
     subtitle: "Historical Tribunal",
     description:
       "A deeply immersive historical simulation. Delegates prosecute and defend cases from the 1994 Rwandan genocide, engaging with evidence, legal procedure, and the moral weight of international justice.",
+    logo: "/brand/un-emblem.png",
+    logoAlt: "United Nations committee mark",
     featured: false,
     span: "single",
   },
@@ -95,6 +111,8 @@ export const committees = [
     subtitle: "Crisis Room",
     description:
       "A committee that never sleeps. The CCC runs a live, escalating global crisis across all three conference days — new developments injected every 60 minutes, alliances shifting in real time. There are no procedures here. There is only the crisis.",
+    logo: "/brand/crisis-room.png",
+    logoAlt: "Crisis Room committee mark",
     featured: false,
     span: "single",
   },
@@ -106,6 +124,8 @@ export const committees = [
     subtitle: "Creative Press Corps",
     description:
       "Not a committee — a media machine. IPC delegates cover all other committees in real time, producing articles, photographs, and caricatures published in the INDYS gazette. This committee generates the summit's visual record, feeds social media, and ensures sponsors are documented in delegate-produced content.",
+    logo: "/brand/creative-press-corps.png",
+    logoAlt: "Creative Press Corps committee mark",
     featured: false,
     span: "double",
   },

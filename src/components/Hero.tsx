@@ -7,8 +7,18 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-center px-6 pt-24 pb-20">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#080f20] via-[#0d1b3e] to-[#132150]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(200,150,62,0.15),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_30%,rgba(200,150,62,0.08),transparent_55%)]" />
+      <video
+        className="absolute inset-0 h-full w-full object-cover opacity-35 mix-blend-screen"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      >
+        <source src="/brand/indys-logo-animation.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-[#080f20]/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#080f20]/60 via-[#0d1b3e]/55 to-[#080f20]/90" />
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl mx-auto">
