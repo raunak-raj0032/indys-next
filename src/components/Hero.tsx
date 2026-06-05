@@ -1,31 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Hero() {
   const [introComplete, setIntroComplete] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(true);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(orientation: portrait)");
+    const update = (e: MediaQueryList | MediaQueryListEvent) => setIsPortrait(e.matches);
+    update(mq);
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-center px-6 pt-24 pb-20">
       <div className="absolute inset-0 bg-gradient-to-br from-[#080f20] via-[#0d1b3e] to-[#132150]" />
-      <div
-        className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ${
+
+      <video
+        key={isPortrait ? "portrait" : "landscape"}
+        className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${
           introComplete ? "opacity-35 mix-blend-screen" : "opacity-100"
         }`}
+        autoPlay
+        muted
+        playsInline
+        onEnded={() => setIntroComplete(true)}
         aria-hidden="true"
       >
-        <video
-          className="absolute left-1/2 top-[59%] h-[112%] w-[112%] -translate-x-1/2 -translate-y-1/2 object-cover md:top-[63%]"
-          autoPlay
-          muted
-          playsInline
-          onEnded={() => setIntroComplete(true)}
-        >
-          <source src="/brand/indys-logo-animation.mp4" type="video/mp4" />
-        </video>
-      </div>
+        <source src={isPortrait ? "/brand/indys_logo_portrait.mp4" : "/brand/indys_banner_logo_vid.mp4"} type="video/mp4" />
+      </video>
+
       <div
         className={`absolute inset-0 bg-[#080f20] transition-opacity duration-1000 ${
           introComplete ? "opacity-70" : "opacity-0"
@@ -44,36 +52,27 @@ export default function Hero() {
         aria-hidden={!introComplete}
       >
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          initial={{ opacity: 0, scale: 0.9, y: 16 }}
+          animate={introComplete ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 16 }}
           transition={{ duration: 0.7 }}
-          className="absolute -right-4 -top-14 hidden h-24 w-24 items-center justify-center rounded-full border border-[#c8963e]/35 bg-white/95 p-2 shadow-2xl shadow-black/25 md:flex lg:-right-28 lg:top-0"
+          className="mx-auto mb-6 flex h-36 w-36 items-center justify-center rounded-full border border-[#c8963e]/35 bg-white/95 p-2 shadow-2xl shadow-black/25 sm:h-44 sm:w-44"
         >
           <Image
             src="/brand/indys-seal-mark.png"
             alt="INDYS seal"
-            width={128}
-            height={128}
+            width={200}
+            height={200}
             priority
             className="h-full w-full object-contain"
           />
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-[#e8b96a] text-xs font-semibold tracking-[0.22em] uppercase mb-6"
-        >
-          Youth Minds. Diplomatic Futures.
-        </motion.p>
-
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
           className="font-[family-name:var(--font-playfair)] font-black text-white leading-none tracking-tight"
-          style={{ fontSize: "clamp(5rem, 16vw, 11rem)" }}
+          style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}
         >
           INDYS <span className="text-[#c8963e]">&apos;26</span>
         </motion.h1>
