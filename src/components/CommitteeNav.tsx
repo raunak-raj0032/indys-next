@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const links = [
   { href: "/#about", label: "About" },
@@ -27,12 +28,16 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-baseline gap-0.5 shrink-0">
-          <span className="font-[family-name:var(--font-serif)] text-2xl font-black text-white tracking-wide">
-            INDYS
-          </span>
-          <span className="font-[family-name:var(--font-serif)] text-lg font-bold text-[#c8963e]">
-            &apos;26
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <Image
+            src="/brand/indys-seal-mark.png"
+            alt="INDYS '26"
+            width={36}
+            height={36}
+            className="rounded-full"
+          />
+          <span className="font-[family-name:var(--font-playfair)] text-xl font-bold text-white tracking-wide">
+            INDYS<span className="text-[#c8963e]"> &apos;26</span>
           </span>
         </Link>
 
