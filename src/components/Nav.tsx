@@ -29,13 +29,15 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5">
-          <Image
-            src="/brand/indys-seal-mark.png"
-            alt="INDYS '26"
-            width={36}
-            height={36}
-            className="rounded-full"
-          />
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-sm">
+            <Image
+              src="/brand/indys-seal-mark.png"
+              alt="INDYS '26"
+              width={36}
+              height={36}
+              className="h-full w-full object-contain"
+            />
+          </span>
           <span className="font-[family-name:var(--font-playfair)] text-xl font-bold text-white tracking-wide">
             INDYS<span className="text-[#c8963e]"> &apos;26</span>
           </span>
