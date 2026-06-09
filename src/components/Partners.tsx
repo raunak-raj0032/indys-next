@@ -36,7 +36,7 @@ export default function Partners() {
           <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
             05 — Partnership Tiers
           </span>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight">
+          <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight">
             Invest in the Room<br className="hidden sm:block" /> Where Decisions Begin
           </h2>
         </FadeIn>
@@ -55,7 +55,7 @@ export default function Partners() {
               <FadeIn key={t.id} delay={i * 0.08}>
                 <div className={`border-2 rounded-xl p-8 ${s.card}`}>
                   <div className="mb-5">
-                    <h3 className={`font-[family-name:var(--font-playfair)] text-2xl font-bold ${s.heading}`}>
+                    <h3 className={`font-[family-name:var(--font-serif)] text-2xl font-bold ${s.heading}`}>
                       {t.name}
                     </h3>
                     <span className={`text-xs font-semibold tracking-widest uppercase ${s.role}`}>

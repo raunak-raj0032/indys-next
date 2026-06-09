@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { committees } from "@/lib/data";
 import FadeIn from "./FadeIn";
 
@@ -8,16 +9,17 @@ export default function Committees() {
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-4">
           <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
-            Nine Committees. One Stage.
+            Ten Committees. One Stage.
           </span>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight">
+          <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight">
             Every Committee at INDYS<br className="hidden sm:block" /> is Chosen for a Reason.
           </h2>
         </FadeIn>
         <FadeIn delay={0.1} className="text-center mb-14">
           <p className="text-[#6b6b6b] max-w-xl mx-auto">
             Together they represent the full spectrum of international diplomacy — from the world&apos;s
-            highest security chamber to a crisis room that has no rules except power.
+            highest security chamber to a crisis room that has no rules except power, with a press
+            corps recording the summit in real time.
           </p>
         </FadeIn>
 
@@ -26,23 +28,31 @@ export default function Committees() {
             if (c.span === "full") {
               return (
                 <FadeIn key={c.id} delay={0} className="md:col-span-3">
-                  <div className="bg-[#0d1b3e] border-2 border-[#c8963e] rounded-xl p-8 md:p-10 overflow-hidden">
-                    <div className="grid gap-8 md:grid-cols-[1fr_220px] md:items-center">
-                      <div>
-                        <span className="inline-block bg-[#c8963e] text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded mb-5">
-                          {c.tag}
-                        </span>
-                        <h3 className="font-[family-name:var(--font-playfair)] text-white text-3xl font-bold mb-1">
-                          {c.name}
-                        </h3>
-                        {c.subtitle && (
-                          <p className="italic text-[#e8b96a] text-sm mb-5">{c.subtitle}</p>
-                        )}
-                        <p className="text-white/70 text-base max-w-2xl leading-relaxed">{c.description}</p>
+                  <Link href={`/committees/${c.id}`} className="group block">
+                    <div className="bg-[#0d1b3e] border-2 border-[#c8963e] rounded-xl p-8 md:p-10 overflow-hidden group-hover:border-[#e8b96a] transition-colors duration-200">
+                      <div className="grid gap-8 md:grid-cols-[1fr_220px] md:items-center">
+                        <div>
+                          <span className="inline-block bg-[#c8963e] text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded mb-5">
+                            {c.tag}
+                          </span>
+                          <h3 className="font-[family-name:var(--font-serif)] text-white text-3xl font-bold mb-1 group-hover:text-[#e8b96a] transition-colors duration-200">
+                            {c.name}
+                          </h3>
+                          {c.subtitle && (
+                            <p className="italic text-[#e8b96a] text-sm mb-5">{c.subtitle}</p>
+                          )}
+                          <p className="text-white/70 text-base max-w-2xl leading-relaxed">{c.description}</p>
+                          <span className="inline-flex items-center gap-1.5 mt-6 text-[#c8963e] group-hover:text-[#e8b96a] text-xs font-semibold tracking-widest uppercase transition-colors">
+                            Explore Committee
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                              <path d="M3 6h6M6 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </span>
+                        </div>
+                        <CommitteeLogo c={c} featured />
                       </div>
-                      <CommitteeLogo c={c} featured />
                     </div>
-                  </div>
+                  </Link>
                 </FadeIn>
               );
             }
@@ -56,7 +66,7 @@ export default function Committees() {
             }
 
             return (
-              <FadeIn key={c.id} delay={i * 0.05}>
+              <FadeIn key={c.id} delay={i * 0.05} className="h-full">
                 <CommitteeCard c={c} />
               </FadeIn>
             );
@@ -69,25 +79,33 @@ export default function Committees() {
 
 function CommitteeCard({ c }: { c: (typeof committees)[number] }) {
   return (
-    <div className="bg-white border border-[#ede8de] rounded-xl p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 h-full">
-      <div className="mb-5 flex min-h-20 items-start justify-between gap-5">
-        <div>
-          {c.abbr && (
-            <div className="font-[family-name:var(--font-playfair)] text-3xl font-black text-[#c8963e] leading-none mb-2">
-              {c.abbr}
-            </div>
-          )}
-          <h3 className="font-[family-name:var(--font-playfair)] text-[#0d1b3e] font-bold text-lg mb-1">
-            {c.name}
-          </h3>
-          {c.subtitle && (
-            <p className="text-xs text-[#6b6b6b] italic">{c.subtitle}</p>
-          )}
+    <Link href={`/committees/${c.id}`} className="group block h-full">
+      <div className="bg-white border border-[#ede8de] rounded-xl p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 h-full flex flex-col">
+        <div className="mb-5 flex min-h-20 items-start justify-between gap-5">
+          <div>
+            {c.abbr && (
+              <div className="font-[family-name:var(--font-serif)] text-3xl font-black text-[#c8963e] leading-none mb-2">
+                {c.abbr}
+              </div>
+            )}
+            <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] font-bold text-lg mb-1 group-hover:text-[#c8963e] transition-colors">
+              {c.name}
+            </h3>
+            {c.subtitle && (
+              <p className="text-xs text-[#6b6b6b] italic">{c.subtitle}</p>
+            )}
+          </div>
+          <CommitteeLogo c={c} />
         </div>
-        <CommitteeLogo c={c} />
+        <p className="text-[#6b6b6b] text-sm leading-relaxed flex-1">{c.description}</p>
+        <span className="inline-flex items-center gap-1 mt-4 text-[#c8963e]/70 group-hover:text-[#c8963e] text-xs font-semibold tracking-wider uppercase transition-colors">
+          Learn More
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2.5 5h5M5 2.5l2.5 2.5L5 7.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
       </div>
-      <p className="text-[#6b6b6b] text-sm leading-relaxed">{c.description}</p>
-    </div>
+    </Link>
   );
 }
 

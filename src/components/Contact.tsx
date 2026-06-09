@@ -5,7 +5,7 @@ export default function Contact() {
     <section id="contact" className="bg-[#0d1b3e] py-24 px-6 text-center text-white">
       <div className="max-w-2xl mx-auto">
         <FadeIn>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold mb-5">
+          <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold mb-5">
             Join INDYS &apos;26
           </h2>
           <p className="text-white/65 mb-2 text-lg">

@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { EB_Garamond, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const playfair = Playfair_Display({
+const ebGaramond = EB_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",
-  weight: ["400", "700", "900"],
+  variable: "--font-serif",
+  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: "INDYS '26 — Indo-Nepal Diplomatic Youth Summit",
   description:
-    "South Asia's first bilateral youth diplomacy conclave. 500+ delegates, 9 committees, 3 days. Siliguri, India — November 20–22, 2026.",
+    "South Asia's first bilateral youth diplomacy conclave. 500+ delegates, 10 committees, and a dedicated press corps across 3 days in Siliguri, India — November 20–22, 2026.",
   keywords: ["MUN", "Model United Nations", "INDYS", "Indo-Nepal", "Siliguri", "diplomacy", "youth summit"],
 };
 
@@ -26,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} h-full antialiased`}>
+    <html lang="en" className={`${sourceSans.variable} ${ebGaramond.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

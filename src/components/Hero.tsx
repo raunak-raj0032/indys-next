@@ -71,7 +71,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="font-[family-name:var(--font-playfair)] font-black text-white leading-none tracking-tight"
+          className="font-[family-name:var(--font-serif)] font-black text-white leading-none tracking-tight"
           style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}
         >
           INDYS <span className="text-[#c8963e]">&apos;26</span>
@@ -81,7 +81,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="font-[family-name:var(--font-playfair)] text-white/90 mt-3"
+          className="font-[family-name:var(--font-serif)] text-white/90 mt-3"
           style={{ fontSize: "clamp(1.3rem, 3vw, 2rem)" }}
         >
           Indo-Nepal Diplomatic Youth Summit
@@ -91,7 +91,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={introComplete ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="font-[family-name:var(--font-playfair)] italic text-[#e8b96a] text-lg mt-2 mb-7"
+          className="font-[family-name:var(--font-serif)] italic text-[#e8b96a] text-lg mt-2 mb-7"
         >
           Two Nations. One Dialogue.
         </motion.p>

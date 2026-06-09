@@ -11,7 +11,7 @@ export default function About() {
           <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
             South Asia&apos;s first bilateral youth diplomacy conclave
           </span>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight mb-6">
+          <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight mb-6">
             What is INDYS?
           </h2>
           <div className="space-y-4 text-[#6b6b6b] text-[1.05rem] leading-relaxed">
@@ -23,7 +23,7 @@ export default function About() {
             <p>
               Anchored in Siliguri — the geographic, cultural, and commercial gateway between
               the two nations — INDYS simulates the world&apos;s most consequential multilateral
-              bodies across 9 unique committees.
+              bodies across 10 committees and a dedicated International Press Corps.
             </p>
             <p>
               From the chambers of the UN Security Council to a first-of-its-kind
@@ -38,7 +38,7 @@ export default function About() {
 
         {/* Right — why Siliguri */}
         <FadeIn direction="right" delay={0.1}>
-          <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-[#0d1b3e] mb-7">
+          <h3 className="font-[family-name:var(--font-serif)] text-2xl font-bold text-[#0d1b3e] mb-7">
             Why Siliguri?
           </h3>
           <div className="space-y-6">
@@ -48,7 +48,7 @@ export default function About() {
                   {r.num}
                 </span>
                 <div>
-                  <h4 className="font-[family-name:var(--font-playfair)] text-[#c8963e] font-semibold mb-1">
+                  <h4 className="font-[family-name:var(--font-serif)] text-[#c8963e] font-semibold mb-1">
                     {r.heading}
                   </h4>
                   <p className="text-[#6b6b6b] text-sm leading-relaxed">{r.body}</p>
