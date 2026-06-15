@@ -254,6 +254,42 @@ export const committees = [
   },
 ] as const;
 
+export const resources = [
+  {
+    id: "what-is-mun",
+    short: "What is a MUN?",
+    title: "What is a MUN?",
+    subtitle: "Model United Nations, explained",
+    tagline: "Start Here",
+    description:
+      "New to all this? Start here. A friendly, no-jargon introduction to what Model UN actually is, how a conference plays out, and why delegates keep coming back for more.",
+    icon: "globe",
+    heroImage: "/resources/what-is-mun-banner.png",
+  },
+  {
+    id: "procedures",
+    short: "MUN Procedures",
+    title: "MUN Procedures",
+    subtitle: "Rules of debate, motions & points",
+    tagline: "The Rulebook",
+    description:
+      "How a committee session actually runs — the way you speak, the motions that move debate forward, the points that protect you, and yes, what to wear.",
+    icon: "gavel",
+    heroImage: "/resources/procedures-banner.png",
+  },
+  {
+    id: "resolutions",
+    short: "What are Resolutions?",
+    title: "What are Resolutions?",
+    subtitle: "The document that makes it official",
+    tagline: "The Endgame",
+    description:
+      "Everything in committee builds toward one thing: the resolution. Here's what it is, how it's structured, and the special clauses that hold it together.",
+    icon: "scroll",
+    heroImage: "/resources/resolutions-banner.png",
+  },
+] as const;
+
 export const stats = [
   { num: "500+", label: "Total Delegates", sub: "Students from 30+ schools across India and Nepal" },
   { num: "10",   label: "Committees",       sub: "UN bodies, regional forums, crisis simulations and press" },

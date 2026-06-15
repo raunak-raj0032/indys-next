@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { committees } from "@/lib/data";
+import { committees, resources } from "@/lib/data";
+import ResourceIcon from "@/components/ResourceIcon";
 
 const links = [
   { href: "#about", label: "About" },
@@ -15,7 +16,9 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [committeesOpen, setCommitteesOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
+  const resourcesRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -27,6 +30,9 @@ export default function Nav() {
     const handler = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setCommitteesOpen(false);
+      }
+      if (resourcesRef.current && !resourcesRef.current.contains(e.target as Node)) {
+        setResourcesOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -118,6 +124,51 @@ export default function Nav() {
             )}
           </li>
 
+          {/* Resources dropdown */}
+          <li className="relative" ref={resourcesRef}>
+            <button
+              onClick={() => setResourcesOpen((v) => !v)}
+              className="flex items-center gap-1.5 text-white/70 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+              aria-expanded={resourcesOpen}
+            >
+              Resources
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+                className={`transition-transform ${resourcesOpen ? "rotate-180" : ""}`}
+              >
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {resourcesOpen && (
+              <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-72 max-h-[70vh] overflow-y-auto rounded-xl border border-[#c8963e]/20 bg-[#0d1b3e] shadow-2xl shadow-black/40 p-2">
+                {resources.map((r) => (
+                  <Link
+                    key={r.id}
+                    href={`/resources/${r.id}`}
+                    onClick={() => setResourcesOpen(false)}
+                    className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-white/5 transition-colors"
+                  >
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#c8963e]/15 text-[#e8b96a]">
+                      <ResourceIcon icon={r.icon} className="h-4 w-4" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-white/85 text-sm font-medium leading-tight truncate">
+                        {r.short}
+                      </span>
+                      <span className="block text-white/40 text-xs leading-tight truncate">
+                        {r.subtitle}
+                      </span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </li>
+
           {links.slice(1).map((l) => (
             <li key={l.href}>
               <a
@@ -182,6 +233,30 @@ export default function Nav() {
                     />
                   </span>
                   {c.abbr}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <span className="w-full h-px bg-white/10" />
+
+          {/* Resources list */}
+          <div>
+            <span className="block text-[#c8963e] text-xs font-semibold tracking-widest uppercase mb-2">
+              Resources
+            </span>
+            <div className="flex flex-col gap-2">
+              {resources.map((r) => (
+                <Link
+                  key={r.id}
+                  href={`/resources/${r.id}`}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-3 text-white/80 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+                >
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#c8963e]/15 text-[#e8b96a]">
+                    <ResourceIcon icon={r.icon} className="h-3.5 w-3.5" />
+                  </span>
+                  {r.short}
                 </Link>
               ))}
             </div>
