@@ -57,16 +57,12 @@ export default function Committees() {
               );
             }
 
-            if (c.span === "double") {
-              return (
-                <FadeIn key={c.id} delay={i * 0.05} className="md:col-span-2">
-                  <CommitteeCard c={c} />
-                </FadeIn>
-              );
-            }
-
             return (
-              <FadeIn key={c.id} delay={i * 0.05} className="h-full">
+              <FadeIn
+                key={c.id}
+                delay={i * 0.05}
+                className={`h-full ${c.id === "ipc" ? "md:col-start-2" : ""}`}
+              >
                 <CommitteeCard c={c} />
               </FadeIn>
             );

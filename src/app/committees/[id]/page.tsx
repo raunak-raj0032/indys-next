@@ -5,6 +5,7 @@ import Link from "next/link";
 import CommitteeNav from "@/components/CommitteeNav";
 import SubpageFooter from "@/components/SubpageFooter";
 import FadeIn from "@/components/FadeIn";
+import ScrollToAboutArrow from "@/components/ScrollToAboutArrow";
 
 export function generateStaticParams() {
   return committees.map((c) => ({ id: c.id }));
@@ -47,7 +48,7 @@ export default async function CommitteePage({
     .filter((c) => c.id !== id)
     .slice(0, 3);
 
-  const displayName = committee.abbr ?? committee.name;
+  const displayName = committee.abbr;
 
   return (
     <>
@@ -151,6 +152,9 @@ export default async function CommitteePage({
                 {committee.format}
               </span>
             </div>
+
+            {/* Scroll-down arrow */}
+            <ScrollToAboutArrow />
           </div>
 
           {/* Wave separator */}
@@ -168,7 +172,7 @@ export default async function CommitteePage({
         </section>
 
         {/* ── About ── */}
-        <section className="bg-[#f7f3eb] py-20 px-6">
+        <section id="about-committee" className="bg-[#f7f3eb] py-20 px-6">
           <div className="max-w-5xl mx-auto grid md:grid-cols-[1fr_300px] gap-12 items-start">
             {/* Description */}
             <FadeIn>
@@ -178,10 +182,15 @@ export default async function CommitteePage({
               <h2 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl md:text-3xl font-bold mb-5 leading-snug">
                 {committee.name}
               </h2>
-              <div className="border-l-2 border-[#c8963e]/40 pl-5 mb-6">
-                <p className="text-[#3a3a3a] text-base leading-relaxed italic">
-                  &ldquo;{committee.description}&rdquo;
+              <div className="border-l-2 border-[#c8963e]/40 pl-5 mb-6 space-y-4">
+                <p className="text-[#3a3a3a] text-base leading-relaxed">
+                  {committee.description}
                 </p>
+                {committee.about && (
+                  <p className="text-[#5a5a5a] text-sm leading-relaxed">
+                    {committee.about}
+                  </p>
+                )}
               </div>
               {/* Agenda list */}
               <div>
@@ -231,91 +240,30 @@ export default async function CommitteePage({
                   </InfoRow>
                 </div>
               </div>
-            </FadeIn>
-          </div>
-        </section>
 
-        {/* ── Background Guide Placeholder ── */}
-        <section className="bg-white py-20 px-6">
-          <div className="max-w-5xl mx-auto">
-            <FadeIn className="text-center mb-12">
-              <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
-                Research Material
-              </span>
-              <h2 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-3xl font-bold mb-3">
-                Background Guide
-              </h2>
-              <p className="text-[#6b6b6b] max-w-lg mx-auto text-sm leading-relaxed">
-                The official research document for this committee. It will cover all agenda
-                items, historical context, key stakeholders, bloc positions, and guiding
-                questions for debate.
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.1}>
-              <div className="relative border-2 border-dashed border-[#e2ddd4] rounded-2xl p-10 md:p-14 bg-[#faf8f4] overflow-hidden">
-                {/* Watermark */}
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden select-none">
-                  <span className="font-[family-name:var(--font-serif)] font-black text-[#0d1b3e]/[0.035] leading-none"
-                    style={{ fontSize: "clamp(6rem, 20vw, 14rem)" }}>
-                    BG
-                  </span>
-                </div>
-
-                {/* Status badge */}
-                <div className="absolute top-5 right-5">
-                  <span className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200">
+              {/* Background Guide */}
+              <div className="mt-6 border border-dashed border-[#e2ddd4] rounded-2xl p-5 bg-[#faf8f4]">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <h3 className="text-[#0d1b3e] text-sm font-bold tracking-wider uppercase">
+                    Background Guide
+                  </h3>
+                  <span className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[10px] font-semibold px-2.5 py-1 rounded-full border border-amber-200 shrink-0">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
                     Coming Soon
                   </span>
                 </div>
-
-                <div className="relative text-center">
-                  {/* Document icon */}
-                  <div className="mx-auto mb-6 w-16 h-16 bg-[#0d1b3e] rounded-2xl flex items-center justify-center shadow-xl">
-                    <svg width="28" height="32" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="1" y="1" width="20" height="28" rx="2.5" stroke="#c8963e" strokeWidth="1.5"/>
-                      <path d="M5 7h12M5 11h12M5 15h8" stroke="#c8963e" strokeWidth="1.5" strokeLinecap="round"/>
-                      <rect x="14" y="20" width="13" height="13" rx="2" fill="#c8963e"/>
-                      <path d="M20.5 24v5M18 26.5h5" stroke="#0d1b3e" strokeWidth="2" strokeLinecap="round"/>
-                    </svg>
-                  </div>
-
-                  <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-1">
-                    {displayName} Background Guide
-                  </h3>
-                  <p className="text-[#6b6b6b] text-sm mb-8">
-                    Releasing ahead of the conference — November 2026
-                  </p>
-
-                  {/* Topics / agenda chips */}
-                  <div className="flex flex-wrap justify-center gap-2 mb-10">
-                    {committee.agenda.map((item, i) => (
-                      <span
-                        key={i}
-                        className="bg-[#0d1b3e]/5 text-[#0d1b3e]/70 text-xs px-3 py-1.5 rounded-full border border-[#0d1b3e]/8 font-medium"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Disabled download */}
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <button
-                      disabled
-                      className="inline-flex items-center gap-2 bg-[#0d1b3e]/20 text-[#0d1b3e]/40 font-semibold text-sm px-7 py-3 rounded-lg cursor-not-allowed select-none"
-                    >
-                      <svg width="14" height="15" viewBox="0 0 14 15" fill="none">
-                        <path d="M7 1v8M4 7l3 3 3-3M2 12.5h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                      Download PDF
-                    </button>
-                    <p className="text-[#6b6b6b] text-xs">
-                      Available once released
-                    </p>
-                  </div>
-                </div>
+                <p className="text-[#6b6b6b] text-xs leading-relaxed mb-4">
+                  Releasing ahead of the conference — November 2026
+                </p>
+                <button
+                  disabled
+                  className="inline-flex w-full items-center justify-center gap-2 bg-[#0d1b3e]/15 text-[#0d1b3e]/40 font-semibold text-xs px-4 py-2.5 rounded-lg cursor-not-allowed select-none"
+                >
+                  <svg width="12" height="13" viewBox="0 0 14 15" fill="none">
+                    <path d="M7 1v8M4 7l3 3 3-3M2 12.5h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Download PDF
+                </button>
               </div>
             </FadeIn>
           </div>

@@ -6,7 +6,7 @@ export default function Dates() {
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-4">
           <span className="block text-[#e8b96a] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
-            04 — Event Dates
+            Event Dates
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold">
             20 · 21 · 22 November 2026

@@ -34,7 +34,7 @@ export default function Partners() {
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-4">
           <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
-            05 — Partnership Tiers
+            Partnership Tiers
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight">
             Invest in the Room<br className="hidden sm:block" /> Where Decisions Begin
