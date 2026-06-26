@@ -7,6 +7,7 @@ import { committees } from "@/lib/data";
 
 const links = [
   { href: "/#about", label: "About" },
+  { href: "/#secretariat", label: "Secretariat" },
   { href: "/#dates", label: "Dates" },
   { href: "/#partners", label: "Partners" },
 ];

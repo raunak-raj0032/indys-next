@@ -290,6 +290,65 @@ export const resources = [
   },
 ] as const;
 
+export const secretariat = [
+  {
+    id: "yash-sharma",
+    name: "Yash Sharma",
+    title: "Secretary-General",
+    image: "/secretariat/yash-sharma.jpg",
+    initials: "YS",
+    featured: true,
+  },
+  {
+    id: "sourodeep-ghosh",
+    name: "Sourodeep Ghosh",
+    title: "High Representative of India to INDYS",
+    image: "/secretariat/sourodeep-ghosh.jpg",
+    initials: "SG",
+    featured: true,
+  },
+  {
+    id: "kunwar-dipankar",
+    name: "Kunwar Dipankar",
+    title: "High Representative of Nepal to INDYS",
+    image: null,
+    initials: "KD",
+    featured: true,
+  },
+  {
+    id: "sangam-lama",
+    name: "Sangam Lama",
+    title: "Director-General",
+    image: "/secretariat/sangam-lama.jpg",
+    initials: "SL",
+    featured: true,
+  },
+  {
+    id: "raunak-raj",
+    name: "Raunak Raj",
+    title: "Director-General of Conference Systems",
+    image: "/secretariat/raunak-raj.jpg",
+    initials: "RR",
+    featured: false,
+  },
+  {
+    id: "mimansha-joshi",
+    name: "Mimansha Joshi",
+    title: "Director of Marketing",
+    image: "/secretariat/mimansha-joshi.jpg",
+    initials: "MJ",
+    featured: false,
+  },
+  {
+    id: "prishir",
+    name: "Prishir",
+    title: "Director of Sponsorship and Outreach",
+    image: "/secretariat/prishir.jpg",
+    initials: "P",
+    featured: false,
+  },
+] as const;
+
 export const stats = [
   { num: "500+", label: "Total Delegates", sub: "Students from 30+ schools across India and Nepal" },
   { num: "10",   label: "Committees",       sub: "UN bodies, regional forums, crisis simulations and press" },

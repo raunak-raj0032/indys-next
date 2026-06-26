@@ -1,5 +1,5 @@
 export default function Footer() {
-  const links = ["About", "Committees", "Dates", "Partners"];
+  const links = ["About", "Secretariat", "Committees", "Dates", "Partners"];
 
   return (
     <footer className="bg-[#080f20] text-white/40 px-6 pt-12 pb-6">

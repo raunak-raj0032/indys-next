@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const footerLinks = ["About", "Committees", "Dates", "Partners"];
+const footerLinks = ["About", "Secretariat", "Committees", "Dates", "Partners"];
 
 export default function SubpageFooter() {
   return (

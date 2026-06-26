@@ -8,6 +8,7 @@ import ResourceIcon from "@/components/ResourceIcon";
 
 const links = [
   { href: "/#about", label: "About" },
+  { href: "/#secretariat", label: "Secretariat" },
   { href: "/#committees", label: "Committees" },
   { href: "/#dates", label: "Dates" },
 ];
