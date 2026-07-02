@@ -6,13 +6,13 @@ export default function ResourceLinks({ links }: { links: LinkItem[] }) {
   return (
     <section className="max-w-3xl mx-auto mt-20">
       <FadeIn className="text-center mb-8">
-        <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+        <span className="section-eyebrow mb-3">
           Go Deeper
         </span>
         <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
           Good places to learn more
         </h3>
-        <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+        <p className="section-copy mx-auto max-w-2xl">
           We pulled this together from a few trusted guides. If you want to keep reading, these are the
           ones worth your time:
         </p>
@@ -32,10 +32,10 @@ export default function ResourceLinks({ links }: { links: LinkItem[] }) {
                 </svg>
               </span>
               <span className="min-w-0">
-                <span className="block text-[#0d1b3e] group-hover:text-[#9a6f24] font-semibold text-sm leading-snug transition-colors">
+                <span className="block text-base font-semibold leading-relaxed text-[#0d1b3e] transition-colors group-hover:text-[#9a6f24]">
                   {l.label}
                 </span>
-                <span className="block text-[#6b6b6b] text-xs leading-relaxed mt-1">{l.desc}</span>
+                <span className="block fine-copy mt-1">{l.desc}</span>
               </span>
             </a>
           </FadeIn>

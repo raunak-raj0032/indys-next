@@ -14,10 +14,10 @@ export default function Stats() {
               {s.num}
             </span>
             <span className="mt-3 mb-3 block w-6 h-px bg-[#c8963e]/40" />
-            <span className="block text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-white/90">
+            <span className="block text-xs font-bold tracking-[0.16em] uppercase text-white">
               {s.label}
             </span>
-            <span className="block text-xs text-white/45 leading-relaxed mt-2 max-w-[160px]">
+            <span className="mt-2 block max-w-[180px] text-[0.9rem] leading-[1.55] text-white/78">
               {s.sub}
             </span>
           </FadeIn>

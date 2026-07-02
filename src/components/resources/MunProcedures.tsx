@@ -143,13 +143,13 @@ export default function MunProcedures() {
       {/* Intro */}
       <section className="max-w-3xl mx-auto">
         <FadeIn>
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             The Rules of the Room
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl md:text-3xl font-bold mb-5 leading-snug">
             How a committee session actually runs
           </h2>
-          <p className="text-[#5a5a5a] text-base leading-relaxed">
+          <p className="section-copy">
             Rules of procedure exist for one reason: to keep order so everyone gets heard. They decide who
             speaks, on what, and when. It can look like a lot at first, but it&apos;s really just a shared
             set of manners.{" "}
@@ -164,13 +164,13 @@ export default function MunProcedures() {
       {/* Quick-reference cheat sheet */}
       <section className="max-w-5xl mx-auto mt-12">
         <FadeIn className="text-center mb-6">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Keep This Open in Committee
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             The “what do I say?” cheat sheet
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             Ninety percent of procedure is knowing the right phrase for the moment. Here&apos;s the short list.
           </p>
         </FadeIn>
@@ -188,7 +188,7 @@ export default function MunProcedures() {
                   {cheatSheet.map((c) => (
                     <tr key={c.want} className="hover:bg-[#faf8f4] transition-colors">
                       <td className="px-5 py-3.5 text-[#0d1b3e] font-semibold text-sm align-top">{c.want}</td>
-                      <td className="px-5 py-3.5 text-[#5a5a5a] text-sm leading-relaxed">{c.say}</td>
+                      <td className="px-5 py-3.5 card-copy">{c.say}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -210,7 +210,7 @@ export default function MunProcedures() {
             <FadeIn key={c.title} delay={i * 0.08}>
               <div className="h-full bg-white border border-[#ede8de] rounded-2xl p-6 shadow-sm">
                 <h4 className="text-[#0d1b3e] font-bold text-lg mb-2">{c.title}</h4>
-                <p className="text-[#5a5a5a] text-sm leading-relaxed">{c.body}</p>
+                <p className="card-copy">{c.body}</p>
               </div>
             </FadeIn>
           ))}
@@ -233,7 +233,7 @@ export default function MunProcedures() {
                 </span>
                 <div>
                   <h4 className="text-[#0d1b3e] font-bold text-base mb-1.5">{r.title}</h4>
-                  <p className="text-[#5a5a5a] text-sm leading-relaxed">{r.body}</p>
+                  <p className="card-copy">{r.body}</p>
                 </div>
               </div>
             </FadeIn>
@@ -244,7 +244,7 @@ export default function MunProcedures() {
       {/* Session flow timeline */}
       <section className="max-w-3xl mx-auto mt-20">
         <FadeIn className="text-center mb-10">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Order of Play
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold">
@@ -261,7 +261,7 @@ export default function MunProcedures() {
                     {i + 1}
                   </span>
                   <p className="text-[#0d1b3e] font-semibold text-base leading-tight">{s.t}</p>
-                  <p className="text-[#5a5a5a] text-sm leading-relaxed mt-1">{s.d}</p>
+                  <p className="card-copy mt-1">{s.d}</p>
                 </div>
               </FadeIn>
             ))}
@@ -272,13 +272,13 @@ export default function MunProcedures() {
       {/* Yields */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             When You Finish a Speech
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             Yielding your time
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             If you don&apos;t use all your speaking time in formal debate, you can <em>yield</em> what&apos;s
             left in one of three ways:
           </p>
@@ -288,7 +288,7 @@ export default function MunProcedures() {
             <FadeIn key={y.to} delay={i * 0.07}>
               <div className="h-full bg-white border border-[#ede8de] rounded-2xl p-6 shadow-sm text-center">
                 <h4 className="text-[#0d1b3e] font-bold text-sm mb-2">{y.to}</h4>
-                <p className="text-[#5a5a5a] text-sm leading-relaxed">{y.d}</p>
+                <p className="card-copy">{y.d}</p>
               </div>
             </FadeIn>
           ))}
@@ -298,13 +298,13 @@ export default function MunProcedures() {
       {/* Motions table */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Moving Debate Forward
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             Motions you&apos;ll hear most
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             A <em>motion</em> is a request to do something procedural. The chair puts it to the room, and it
             passes if enough delegates agree.
           </p>
@@ -326,7 +326,7 @@ export default function MunProcedures() {
                       <td className="px-5 py-3.5 text-[#0d1b3e] font-semibold text-sm align-top whitespace-nowrap">
                         {m.name}
                       </td>
-                      <td className="px-5 py-3.5 text-[#5a5a5a] text-sm leading-relaxed">{m.what}</td>
+                      <td className="px-5 py-3.5 card-copy">{m.what}</td>
                       <td className="px-5 py-3.5 text-right align-top">
                         <span className="inline-block bg-[#c8963e]/12 text-[#9a6f24] text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
                           {m.maj}
@@ -338,8 +338,8 @@ export default function MunProcedures() {
               </table>
             </div>
           </div>
-          <p className="text-[#9a9a9a] text-xs mt-4 leading-relaxed">
-            <strong className="text-[#6b6b6b]">Precedence matters.</strong> When several motions are on the
+          <p className="fine-copy mt-4 leading-relaxed">
+            <strong className="text-[#454545]">Precedence matters.</strong> When several motions are on the
             table at once, the chair takes them in order of disruptiveness: suspend the meeting → adjourn the
             meeting → adjourn the debate → close the debate.
           </p>
@@ -349,13 +349,13 @@ export default function MunProcedures() {
       {/* Amendments */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Changing the Draft
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             Friendly &amp; unfriendly amendments
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             An <em>amendment</em> adds to, deletes from, or revises part of a draft resolution. There are two
             flavours:
           </p>
@@ -364,7 +364,7 @@ export default function MunProcedures() {
           <FadeIn>
             <div className="h-full bg-white border border-emerald-200 rounded-2xl p-6 shadow-sm">
               <h4 className="text-[#0d1b3e] font-bold text-lg mb-2">Friendly</h4>
-              <p className="text-[#5a5a5a] text-sm leading-relaxed">
+              <p className="card-copy">
                 All the sponsors of the resolution agree to the change. Because there&apos;s no dispute, it&apos;s
                 simply folded into the draft — no debate, no vote needed.
               </p>
@@ -373,7 +373,7 @@ export default function MunProcedures() {
           <FadeIn delay={0.1}>
             <div className="h-full bg-white border border-amber-200 rounded-2xl p-6 shadow-sm">
               <h4 className="text-[#0d1b3e] font-bold text-lg mb-2">Unfriendly</h4>
-              <p className="text-[#5a5a5a] text-sm leading-relaxed">
+              <p className="card-copy">
                 At least one sponsor disagrees. It has to be introduced by motion, debated (typically two
                 speakers for, two against), and then put to a committee vote to pass.
               </p>
@@ -385,13 +385,13 @@ export default function MunProcedures() {
       {/* Points & Rights */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Your Safety Net
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             Points &amp; rights
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             Where motions move debate, <em>points</em> protect you and keep things running smoothly.
           </p>
         </FadeIn>
@@ -406,7 +406,7 @@ export default function MunProcedures() {
                 <h4 className={`font-bold text-sm mb-2 ${p.accent ? "text-[#e8b96a]" : "text-[#0d1b3e]"}`}>
                   {p.name}
                 </h4>
-                <p className={`text-sm leading-relaxed ${p.accent ? "text-white/75" : "text-[#5a5a5a]"}`}>
+                <p className={`text-sm leading-relaxed ${p.accent ? "text-white/84" : "text-[#3f3f3f]"}`}>
                   {p.body}
                 </p>
               </div>
@@ -418,13 +418,13 @@ export default function MunProcedures() {
       {/* Dress code */}
       <section className="max-w-4xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Look the Part
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             The dress code
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             It changes a little from conference to conference, but the spirit is always the same: dress like
             a diplomat.
           </p>
@@ -440,7 +440,7 @@ export default function MunProcedures() {
               </div>
               <ul className="space-y-2.5">
                 {wear.map((w) => (
-                  <li key={w} className="flex gap-2.5 text-[#3a3a3a] text-sm leading-relaxed">
+                  <li key={w} className="flex gap-2.5 card-copy">
                     <span className="text-emerald-500 mt-0.5">✓</span>
                     {w}
                   </li>
@@ -458,7 +458,7 @@ export default function MunProcedures() {
               </div>
               <ul className="space-y-2.5">
                 {dontWear.map((w) => (
-                  <li key={w} className="flex gap-2.5 text-[#3a3a3a] text-sm leading-relaxed">
+                  <li key={w} className="flex gap-2.5 card-copy">
                     <span className="text-red-400 mt-0.5">✕</span>
                     {w}
                   </li>
@@ -472,13 +472,13 @@ export default function MunProcedures() {
       {/* How to structure a speech */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Make Your 90 Seconds Count
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             How to structure a speech
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             Speaking time is short and precious. A simple four-beat structure keeps you clear under pressure.
           </p>
         </FadeIn>
@@ -490,7 +490,7 @@ export default function MunProcedures() {
                   {i + 1}
                 </span>
                 <h4 className="text-[#0d1b3e] font-bold text-sm mb-1.5">{s.t}</h4>
-                <p className="text-[#5a5a5a] text-sm leading-relaxed">{s.d}</p>
+                <p className="card-copy">{s.d}</p>
               </div>
             </FadeIn>
           ))}

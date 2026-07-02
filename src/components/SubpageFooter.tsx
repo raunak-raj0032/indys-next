@@ -4,7 +4,7 @@ const footerLinks = ["About", "Secretariat", "Committees", "Dates", "Partners"];
 
 export default function SubpageFooter() {
   return (
-    <footer className="bg-[#080f20] text-white/40 px-6 pt-12 pb-6">
+    <footer className="bg-[#080f20] text-white/72 px-6 pt-12 pb-6">
       <div className="max-w-6xl mx-auto flex flex-wrap justify-between gap-10 pb-8 border-b border-white/8 mb-6">
         <div>
           <Link

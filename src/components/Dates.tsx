@@ -5,7 +5,7 @@ export default function Dates() {
     <section id="dates" className="bg-[#0d1b3e] py-24 px-6 text-white">
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-4">
-          <span className="block text-[#e8b96a] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="section-eyebrow mb-3 text-[#e8b96a]">
             Event Dates
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold">
@@ -13,7 +13,7 @@ export default function Dates() {
           </h2>
         </FadeIn>
         <FadeIn delay={0.1} className="text-center mb-14">
-          <p className="text-white/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="dark-copy mx-auto max-w-2xl">
             November is the perfect window — post-monsoon, pre-winter, and aligned with academic
             calendars in both India and Nepal. The cool Siliguri air, no examination conflicts,
             and maximum delegate availability make the summit a full arc:{" "}
@@ -32,7 +32,7 @@ export default function Dates() {
                 <div className="font-[family-name:var(--font-serif)] text-6xl font-black text-[#c8963e] leading-none">
                   {d.num}
                 </div>
-                <div className="text-xs text-white/40 tracking-widest uppercase mt-1 mb-5">
+                <div className="text-xs text-white/88 tracking-widest uppercase mt-1 mb-5">
                   November
                 </div>
                 <h3 className="font-[family-name:var(--font-serif)] font-bold text-lg">
@@ -44,7 +44,7 @@ export default function Dates() {
         </div>
 
         <FadeIn delay={0.3}>
-          <div className="max-w-2xl mx-auto bg-[#c8963e]/10 border border-[#c8963e]/30 rounded-xl px-8 py-6 text-center text-sm text-white/65 leading-relaxed">
+          <div className="dark-card-copy mx-auto max-w-2xl rounded-xl border border-[#c8963e]/30 bg-[#c8963e]/10 px-8 py-6 text-center">
             Three days designed for maximum delegate availability, sustained debate, and a complete
             summit journey from opening session to final resolution.
           </div>

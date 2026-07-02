@@ -80,7 +80,7 @@ export default async function ResourcePage({
             {/* Back link */}
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 text-white/40 hover:text-[#e8b96a] text-xs font-semibold tracking-widest uppercase transition-colors mb-10"
+              className="inline-flex items-center gap-1.5 text-white/88 hover:text-[#e8b96a] text-xs font-semibold tracking-widest uppercase transition-colors mb-10"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -112,7 +112,7 @@ export default async function ResourcePage({
             </p>
 
             {/* Description */}
-            <p className="text-white/65 text-base leading-relaxed max-w-2xl mx-auto">
+            <p className="dark-copy mx-auto max-w-2xl">
               {resource.description}
             </p>
           </div>
@@ -140,7 +140,7 @@ export default async function ResourcePage({
         <section className="bg-[#0d1b3e] py-16 px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn className="text-center mb-10">
-              <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+              <span className="section-eyebrow mb-3 text-[#c8963e]">
                 Keep Learning
               </span>
               <h2 className="font-[family-name:var(--font-serif)] text-white text-2xl font-bold">
@@ -161,7 +161,7 @@ export default async function ResourcePage({
                       <span className="block text-white/85 group-hover:text-white text-base font-semibold leading-tight transition-colors">
                         {r.short}
                       </span>
-                      <span className="block text-white/50 text-sm leading-snug mt-1">
+                      <span className="mt-1 block text-[0.95rem] leading-relaxed text-white/78">
                         {r.subtitle}
                       </span>
                     </span>

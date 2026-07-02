@@ -18,7 +18,7 @@ const ebGaramond = EB_Garamond({
 export const metadata: Metadata = {
   title: "INDYS '26 — Indo-Nepal Diplomatic Youth Summit",
   description:
-    "South Asia's first bilateral youth diplomacy conclave. 500+ delegates, 10 committees, and a dedicated press corps across 3 days in Siliguri, India — November 20–22, 2026.",
+    "South Asia's first bilateral youth diplomacy conclave. 500+ delegates, 11 committees, and a dedicated press corps across 3 days in Siliguri, India — November 20–22, 2026.",
   keywords: ["MUN", "Model United Nations", "INDYS", "Indo-Nepal", "Siliguri", "diplomacy", "youth summit"],
 };
 

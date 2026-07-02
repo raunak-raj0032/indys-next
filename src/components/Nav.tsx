@@ -8,7 +8,7 @@ import ResourceIcon from "@/components/ResourceIcon";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#secretariat", label: "Secretariat" },
+  { href: "/secretariat", label: "Secretariat" },
   { href: "#dates", label: "Dates" },
   { href: "#partners", label: "Partners" },
 ];
@@ -68,7 +68,7 @@ export default function Nav() {
           <li>
             <a
               href="#about"
-              className="text-white/70 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+              className="text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
             >
               About
             </a>
@@ -78,7 +78,7 @@ export default function Nav() {
           <li className="relative" ref={dropdownRef}>
             <button
               onClick={() => setCommitteesOpen((v) => !v)}
-              className="flex items-center gap-1.5 text-white/70 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+              className="flex items-center gap-1.5 text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
               aria-expanded={committeesOpen}
             >
               Committees
@@ -115,7 +115,7 @@ export default function Nav() {
                       <span className="block text-white/85 text-sm font-medium leading-tight truncate">
                         {c.abbr}
                       </span>
-                      <span className="block text-white/40 text-xs leading-tight truncate">
+                      <span className="block text-white/68 text-xs leading-tight truncate">
                         {c.name}
                       </span>
                     </span>
@@ -129,7 +129,7 @@ export default function Nav() {
           <li className="relative" ref={resourcesRef}>
             <button
               onClick={() => setResourcesOpen((v) => !v)}
-              className="flex items-center gap-1.5 text-white/70 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+              className="flex items-center gap-1.5 text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
               aria-expanded={resourcesOpen}
             >
               Resources
@@ -160,7 +160,7 @@ export default function Nav() {
                       <span className="block text-white/85 text-sm font-medium leading-tight truncate">
                         {r.short}
                       </span>
-                      <span className="block text-white/40 text-xs leading-tight truncate">
+                      <span className="block text-white/68 text-xs leading-tight truncate">
                         {r.subtitle}
                       </span>
                     </span>
@@ -174,7 +174,7 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-white/70 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+                className="text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
               >
                 {l.label}
               </a>
@@ -206,7 +206,7 @@ export default function Nav() {
           <a
             href="#about"
             onClick={() => setOpen(false)}
-            className="text-white/80 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+            className="text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
           >
             About
           </a>
@@ -222,7 +222,7 @@ export default function Nav() {
                   key={c.id}
                   href={`/committees/${c.id}`}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 text-white/80 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+                  className="flex items-center gap-3 text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/95 p-1">
                     <Image
@@ -252,7 +252,7 @@ export default function Nav() {
                   key={r.id}
                   href={`/resources/${r.id}`}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 text-white/80 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+                  className="flex items-center gap-3 text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#c8963e]/15 text-[#e8b96a]">
                     <ResourceIcon icon={r.icon} className="h-3.5 w-3.5" />
@@ -270,7 +270,7 @@ export default function Nav() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-white/80 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+              className="text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
             >
               {l.label}
             </a>

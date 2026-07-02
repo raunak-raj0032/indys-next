@@ -3,20 +3,22 @@ import Link from "next/link";
 import { committees } from "@/lib/data";
 import FadeIn from "./FadeIn";
 
+const homeCommittees = committees.slice(0, 4);
+
 export default function Committees() {
   return (
     <section id="committees" className="bg-[#f7f3eb] py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-4">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
-            Ten Committees. One Stage.
+          <span className="section-eyebrow mb-3">
+            Eleven Committees. One Stage.
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight">
             Every Committee at INDYS<br className="hidden sm:block" /> is Chosen for a Reason.
           </h2>
         </FadeIn>
         <FadeIn delay={0.1} className="text-center mb-14">
-          <p className="text-[#6b6b6b] max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             Together they represent the full spectrum of international diplomacy — from the world&apos;s
             highest security chamber to a crisis room that has no rules except power, with a press
             corps recording the summit in real time.
@@ -24,7 +26,7 @@ export default function Committees() {
         </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {committees.map((c, i) => {
+          {homeCommittees.map((c, i) => {
             if (c.span === "full") {
               return (
                 <FadeIn key={c.id} delay={0} className="md:col-span-3">
@@ -41,7 +43,7 @@ export default function Committees() {
                           {c.subtitle && (
                             <p className="italic text-[#e8b96a] text-sm mb-5">{c.subtitle}</p>
                           )}
-                          <p className="text-white/70 text-base max-w-2xl leading-relaxed">{c.description}</p>
+                          <p className="dark-copy max-w-2xl">{c.description}</p>
                           <span className="inline-flex items-center gap-1.5 mt-6 text-[#c8963e] group-hover:text-[#e8b96a] text-xs font-semibold tracking-widest uppercase transition-colors">
                             Explore Committee
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -68,12 +70,23 @@ export default function Committees() {
             );
           })}
         </div>
+        <FadeIn delay={0.18} className="mt-10 text-center">
+          <Link
+            href="/committees"
+            className="inline-flex items-center justify-center gap-2 rounded-md bg-[#0d1b3e] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[#132150] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c8963e]"
+          >
+            See All Committees
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        </FadeIn>
       </div>
     </section>
   );
 }
 
-function CommitteeCard({ c }: { c: (typeof committees)[number] }) {
+export function CommitteeCard({ c }: { c: (typeof committees)[number] }) {
   return (
     <Link href={`/committees/${c.id}`} className="group block h-full">
       <div className="bg-white border border-[#ede8de] rounded-xl p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 h-full flex flex-col">
@@ -88,12 +101,12 @@ function CommitteeCard({ c }: { c: (typeof committees)[number] }) {
               {c.name}
             </h3>
             {c.subtitle && (
-              <p className="text-xs text-[#6b6b6b] italic">{c.subtitle}</p>
+              <p className="fine-copy italic">{c.subtitle}</p>
             )}
           </div>
           <CommitteeLogo c={c} />
         </div>
-        <p className="text-[#6b6b6b] text-sm leading-relaxed flex-1">{c.description}</p>
+        <p className="card-copy flex-1">{c.description}</p>
         <span className="inline-flex items-center gap-1 mt-4 text-[#c8963e]/70 group-hover:text-[#c8963e] text-xs font-semibold tracking-wider uppercase transition-colors">
           Learn More
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -105,7 +118,7 @@ function CommitteeCard({ c }: { c: (typeof committees)[number] }) {
   );
 }
 
-function CommitteeLogo({
+export function CommitteeLogo({
   c,
   featured = false,
 }: {

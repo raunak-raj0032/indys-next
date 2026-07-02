@@ -8,13 +8,13 @@ export default function About() {
 
         {/* Left — text */}
         <FadeIn direction="left">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="section-eyebrow mb-3">
             South Asia&apos;s first bilateral youth diplomacy conclave
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight mb-6">
             What is INDYS?
           </h2>
-          <div className="space-y-4 text-[#6b6b6b] text-[1.05rem] leading-relaxed">
+          <div className="section-copy-lg space-y-5">
             <p>
               INDYS is an authorized, government-recognised Model United Nations conference
               bringing together student delegates from India and Nepal under one roof for the
@@ -23,7 +23,7 @@ export default function About() {
             <p>
               Anchored in Siliguri — the geographic, cultural, and commercial gateway between
               the two nations — INDYS simulates the world&apos;s most consequential multilateral
-              bodies across 10 committees and a dedicated International Press Corps.
+              bodies across 11 committees and a dedicated International Press Corps.
             </p>
             <p>
               From the chambers of the UN Security Council to a first-of-its-kind
@@ -48,10 +48,10 @@ export default function About() {
                   {r.num}
                 </span>
                 <div>
-                  <h4 className="font-[family-name:var(--font-serif)] text-[#c8963e] font-semibold mb-1">
+                  <h4 className="font-[family-name:var(--font-serif)] text-lg font-semibold text-[#9a6f24] mb-1">
                     {r.heading}
                   </h4>
-                  <p className="text-[#6b6b6b] text-sm leading-relaxed">{r.body}</p>
+                  <p className="card-copy">{r.body}</p>
                 </div>
               </div>
             ))}

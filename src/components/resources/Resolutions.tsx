@@ -61,7 +61,7 @@ export default function Resolutions() {
       {/* Intro */}
       <section className="max-w-3xl mx-auto">
         <FadeIn>
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             The Whole Point
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl md:text-3xl font-bold mb-5 leading-snug">
@@ -71,7 +71,7 @@ export default function Resolutions() {
             In MUN, a <strong className="text-[#0d1b3e]">resolution</strong> is a formal document that lays
             out proposed solutions to the issue your committee is tackling.
           </p>
-          <p className="text-[#5a5a5a] text-base leading-relaxed">
+          <p className="section-copy">
             It&apos;s the main way delegates work together to address a global challenge and reach consensus.
             Throughout the session you debate and negotiate its content, gathering support — and once a
             resolution is approved by a majority vote, it becomes the official stance of the committee.
@@ -82,13 +82,13 @@ export default function Resolutions() {
       {/* Quick comparison table */}
       <section className="max-w-4xl mx-auto mt-12">
         <FadeIn className="text-center mb-6">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             The Two Halves, Side by Side
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             Preamble vs. operative, at a glance
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             Every resolution has two kinds of clauses. If you remember nothing else, remember this table.
           </p>
         </FadeIn>
@@ -107,8 +107,8 @@ export default function Resolutions() {
                   {compareRows.map(([k, p, o]) => (
                     <tr key={k} className="hover:bg-[#faf8f4] transition-colors">
                       <td className="px-5 py-3.5 text-[#0d1b3e] font-semibold text-sm align-top whitespace-nowrap">{k}</td>
-                      <td className="px-5 py-3.5 text-[#5a5a5a] text-sm leading-relaxed align-top">{p}</td>
-                      <td className="px-5 py-3.5 text-[#5a5a5a] text-sm leading-relaxed align-top">{o}</td>
+                      <td className="px-5 py-3.5 card-copy align-top">{p}</td>
+                      <td className="px-5 py-3.5 card-copy align-top">{o}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -121,7 +121,7 @@ export default function Resolutions() {
       {/* Anatomy diagram */}
       <section className="max-w-4xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Anatomy of a Resolution
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold">
@@ -136,10 +136,10 @@ export default function Resolutions() {
                 The Header — who &amp; what
               </p>
               <div className="grid sm:grid-cols-2 gap-x-8 gap-y-1.5 font-[family-name:var(--font-serif)]">
-                <p className="text-white/90 text-sm"><span className="text-white/45">COMMITTEE:</span> UNHCR</p>
-                <p className="text-white/90 text-sm"><span className="text-white/45">QUESTION OF:</span> Climate displacement</p>
-                <p className="text-white/90 text-sm"><span className="text-white/45">MAIN SUBMITTER:</span> India</p>
-                <p className="text-white/90 text-sm"><span className="text-white/45">CO-SUBMITTERS:</span> Nepal, Bhutan…</p>
+                <p className="text-white/90 text-sm"><span className="text-white/68">COMMITTEE:</span> UNHCR</p>
+                <p className="text-white/90 text-sm"><span className="text-white/68">QUESTION OF:</span> Climate displacement</p>
+                <p className="text-white/90 text-sm"><span className="text-white/68">MAIN SUBMITTER:</span> India</p>
+                <p className="text-white/90 text-sm"><span className="text-white/68">CO-SUBMITTERS:</span> Nepal, Bhutan…</p>
               </div>
             </div>
 
@@ -156,9 +156,9 @@ export default function Resolutions() {
                 <span className="inline-block bg-[#c8963e]/12 text-[#9a6f24] text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded">
                   Preambulatory clauses
                 </span>
-                <span className="text-[#9a9a9a] text-xs">— the “why”. Opener <em>italicized</em>, ends in a comma.</span>
+                <span className="fine-copy">— the “why”. Opener <em>italicized</em>, ends in a comma.</span>
               </div>
-              <div className="font-[family-name:var(--font-serif)] text-[#3a3a3a] text-sm leading-relaxed space-y-2">
+              <div className="font-[family-name:var(--font-serif)] card-copy space-y-2">
                 <p><em>Recalling</em> the 1951 Refugee Convention,</p>
                 <p><em>Deeply concerned</em> by rising displacement across the Bay of Bengal region,</p>
               </div>
@@ -170,9 +170,9 @@ export default function Resolutions() {
                 <span className="inline-block bg-[#0d1b3e]/8 text-[#0d1b3e] text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded">
                   Operative clauses
                 </span>
-                <span className="text-[#9a9a9a] text-xs">— the “what”. Opener <span className="underline">underlined</span> &amp; numbered, ends in a semicolon.</span>
+                <span className="fine-copy">— the “what”. Opener <span className="underline">underlined</span> &amp; numbered, ends in a semicolon.</span>
               </div>
-              <div className="font-[family-name:var(--font-serif)] text-[#3a3a3a] text-sm leading-relaxed space-y-2">
+              <div className="font-[family-name:var(--font-serif)] card-copy space-y-2">
                 <p>1. <span className="underline">Calls upon</span> member states to establish a regional relief fund;</p>
                 <p>2. <span className="underline">Requests</span> the creation of a monitoring body that:</p>
                 <p className="pl-6">a. reports annually on displacement figures,</p>
@@ -180,7 +180,7 @@ export default function Resolutions() {
               </div>
             </div>
           </div>
-          <p className="text-center text-[#9a9a9a] text-xs mt-4 italic">
+          <p className="text-center fine-copy mt-4 italic">
             An illustrative example — the whole thing reads as one long sentence, ending in a single period.
           </p>
         </FadeIn>
@@ -193,7 +193,7 @@ export default function Resolutions() {
             <h3 className="text-[#0d1b3e] text-sm font-bold tracking-wider uppercase mb-3">
               The “one sentence” trick
             </h3>
-            <p className="text-[#5a5a5a] text-sm leading-relaxed">
+            <p className="card-copy">
               Here&apos;s the secret that makes the formatting click: the entire resolution is grammatically{" "}
               <strong className="text-[#0d1b3e]">one sentence</strong>. The committee&apos;s name is the{" "}
               <em>subject</em>. The preambulatory clauses are descriptive phrases setting out its frame of
@@ -208,7 +208,7 @@ export default function Resolutions() {
       {/* Preamble vs Operative */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Two Kinds of Clauses
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold">
@@ -219,7 +219,7 @@ export default function Resolutions() {
           <FadeIn>
             <div className="h-full bg-white border border-[#ede8de] rounded-2xl p-6 shadow-sm">
               <h4 className="text-[#0d1b3e] font-bold text-lg mb-1">Preambulatory</h4>
-              <p className="text-[#6b6b6b] text-sm leading-relaxed mb-4">
+              <p className="card-copy mb-4">
                 The historic justification for action — they cite past resolutions, precedents and the
                 purpose behind what you&apos;re proposing. Openers are <em>italicized</em>.
               </p>
@@ -235,7 +235,7 @@ export default function Resolutions() {
           <FadeIn delay={0.1}>
             <div className="h-full bg-white border border-[#ede8de] rounded-2xl p-6 shadow-sm">
               <h4 className="text-[#0d1b3e] font-bold text-lg mb-1">Operative</h4>
-              <p className="text-[#6b6b6b] text-sm leading-relaxed mb-4">
+              <p className="card-copy mb-4">
                 The actual policies your resolution creates — they spell out what the committee will{" "}
                 <em>do</em>. Openers are <span className="underline">underlined</span>. (<em>Condemns</em> and{" "}
                 <em>Demands</em> are reserved for the Security Council.)
@@ -255,7 +255,7 @@ export default function Resolutions() {
       {/* Formatting rules */}
       <section className="max-w-3xl mx-auto mt-20">
         <FadeIn className="mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3 text-center">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg text-center">
             Get the Format Right
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold text-center">
@@ -266,7 +266,7 @@ export default function Resolutions() {
           <div className="bg-white border border-[#ede8de] rounded-2xl p-6 shadow-sm">
             <ul className="space-y-3">
               {formatRules.map((r) => (
-                <li key={r} className="flex gap-3 text-[#3a3a3a] text-sm leading-relaxed">
+                <li key={r} className="flex gap-3 card-copy">
                   <span className="shrink-0 flex h-5 w-5 items-center justify-center rounded-full bg-[#c8963e]/12 text-[#c8963e] mt-0.5">
                     <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5 6 11l5.5-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </span>
@@ -281,13 +281,13 @@ export default function Resolutions() {
       {/* Committee types */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Where Resolutions Live
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             How committees handle them
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             Different committee formats treat the resolution differently — it&apos;s worth knowing which one
             you&apos;re walking into.
           </p>
@@ -297,7 +297,7 @@ export default function Resolutions() {
             <FadeIn key={c.name} delay={i * 0.07}>
               <div className="h-full bg-[#0d1b3e] rounded-2xl p-6">
                 <h4 className="text-[#e8b96a] font-bold text-base mb-2">{c.name}</h4>
-                <p className="text-white/70 text-sm leading-relaxed">{c.body}</p>
+                <p className="dark-card-copy">{c.body}</p>
               </div>
             </FadeIn>
           ))}
@@ -307,7 +307,7 @@ export default function Resolutions() {
       {/* Common mistakes */}
       <section className="max-w-3xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Learn From Others
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold">
@@ -318,7 +318,7 @@ export default function Resolutions() {
           <div className="bg-white border border-[#ede8de] rounded-2xl p-6 shadow-sm">
             <ul className="space-y-3">
               {mistakes.map((m) => (
-                <li key={m} className="flex gap-3 text-[#3a3a3a] text-sm leading-relaxed">
+                <li key={m} className="flex gap-3 card-copy">
                   <span className="shrink-0 flex h-5 w-5 items-center justify-center rounded-full bg-red-100 text-red-500 mt-0.5">
                     <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
                   </span>

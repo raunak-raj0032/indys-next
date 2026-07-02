@@ -85,7 +85,7 @@ export default async function CommitteePage({
             {/* Back link */}
             <Link
               href="/#committees"
-              className="inline-flex items-center gap-1.5 text-white/40 hover:text-[#e8b96a] text-xs font-semibold tracking-widest uppercase transition-colors mb-10"
+              className="inline-flex items-center gap-1.5 text-white/88 hover:text-[#e8b96a] text-xs font-semibold tracking-widest uppercase transition-colors mb-10"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -141,14 +141,14 @@ export default async function CommitteePage({
               >
                 {committee.difficulty}
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-white/8 text-white/70 text-xs font-medium px-3.5 py-1.5 rounded-full border border-white/12">
+              <span className="inline-flex items-center gap-1.5 bg-white/8 text-white/82 text-xs font-medium px-3.5 py-1.5 rounded-full border border-white/12">
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-60">
                   <circle cx="5" cy="5" r="4" stroke="currentColor" strokeWidth="1.2"/>
                   <path d="M5 2.5v2.5l1.5 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
                 </svg>
                 {committee.seats} Delegates
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-white/8 text-white/70 text-xs font-medium px-3.5 py-1.5 rounded-full border border-white/12">
+              <span className="inline-flex items-center gap-1.5 bg-white/8 text-white/82 text-xs font-medium px-3.5 py-1.5 rounded-full border border-white/12">
                 {committee.format}
               </span>
             </div>
@@ -176,18 +176,18 @@ export default async function CommitteePage({
           <div className="max-w-5xl mx-auto grid md:grid-cols-[1fr_300px] gap-12 items-start">
             {/* Description */}
             <FadeIn>
-              <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+              <span className="section-eyebrow mb-3">
                 About the Committee
               </span>
-              <h2 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl md:text-3xl font-bold mb-5 leading-snug">
+              <h2 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-3xl md:text-4xl font-bold mb-5 leading-tight">
                 {committee.name}
               </h2>
               <div className="border-l-2 border-[#c8963e]/40 pl-5 mb-6 space-y-4">
-                <p className="text-[#3a3a3a] text-base leading-relaxed">
+                <p className="section-copy-lg">
                   {committee.description}
                 </p>
                 {committee.about && (
-                  <p className="text-[#5a5a5a] text-sm leading-relaxed">
+                  <p className="card-copy">
                     {committee.about}
                   </p>
                 )}
@@ -203,7 +203,7 @@ export default async function CommitteePage({
                       <span className="shrink-0 w-6 h-6 rounded-full bg-[#0d1b3e] text-white text-xs font-bold flex items-center justify-center mt-0.5">
                         {i + 1}
                       </span>
-                      <span className="text-[#3a3a3a] text-sm leading-relaxed">{item}</span>
+                      <span className="card-copy">{item}</span>
                     </li>
                   ))}
                 </ol>
@@ -252,7 +252,7 @@ export default async function CommitteePage({
                     Coming Soon
                   </span>
                 </div>
-                <p className="text-[#6b6b6b] text-xs leading-relaxed mb-4">
+                <p className="fine-copy mb-4">
                   Releasing ahead of the conference — November 2026
                 </p>
                 <button
@@ -273,7 +273,7 @@ export default async function CommitteePage({
         <section className="bg-[#0d1b3e] py-16 px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn className="text-center mb-10">
-              <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+              <span className="section-eyebrow mb-3 text-[#c8963e]">
                 Also at INDYS &apos;26
               </span>
               <h2 className="font-[family-name:var(--font-serif)] text-white text-2xl font-bold">
@@ -303,7 +303,7 @@ export default async function CommitteePage({
                         </span>
                       )}
                     </div>
-                    <h3 className="text-white/80 group-hover:text-white text-sm font-semibold leading-snug transition-colors">
+                    <h3 className="text-[0.98rem] font-semibold leading-relaxed text-white/88 transition-colors group-hover:text-white">
                       {c.name}
                     </h3>
                   </Link>
@@ -313,9 +313,9 @@ export default async function CommitteePage({
             <div className="text-center">
               <Link
                 href="/#committees"
-                className="inline-flex items-center gap-1.5 text-white/40 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+                className="inline-flex items-center gap-1.5 text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
               >
-                View all 10 committees
+                View all committees
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M3 6h6M6 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -339,7 +339,7 @@ function InfoRow({
 }) {
   return (
     <div className="flex items-start justify-between gap-4 py-3.5">
-      <span className="text-[#6b6b6b] text-xs font-medium uppercase tracking-wider shrink-0">
+      <span className="shrink-0 text-sm font-semibold uppercase tracking-wider text-[#454545]">
         {label}
       </span>
       <div className="text-right">{children}</div>

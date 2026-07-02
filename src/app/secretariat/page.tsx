@@ -53,8 +53,8 @@ export default function SecretariatPage() {
 
           <div className="relative mx-auto w-full max-w-6xl">
             <Link
-              href="/#secretariat"
-              className="mb-8 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-white/55 transition-colors hover:text-[#e8b96a]"
+              href="/"
+              className="mb-8 inline-flex items-center gap-1.5 text-base font-semibold uppercase tracking-[0.08em] text-white/78 transition-colors hover:text-[#e8b96a]"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M9 2 4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -62,7 +62,7 @@ export default function SecretariatPage() {
               Home
             </Link>
             <FadeIn className="max-w-3xl">
-              <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.14em] text-[#e8b96a]">
+              <span className="mb-3 block text-base font-extrabold uppercase tracking-[0.08em] text-[#e8b96a] md:text-lg">
                 INDYS &apos;26 Leadership
               </span>
               <h1 className="font-[family-name:var(--font-serif)] text-5xl font-bold leading-none text-white md:text-7xl">
@@ -72,25 +72,18 @@ export default function SecretariatPage() {
                 The secretariat directs conference strategy, representation, systems, marketing,
                 sponsorship, and delegate-facing execution for INDYS &apos;26.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <span className="rounded-full border border-white/18 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/82">
-                  7-member team
-                </span>
-                <span className="rounded-full border border-white/18 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/82">
-                  India-Nepal representation
-                </span>
-                <span className="rounded-full border border-white/18 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/82">
-                  Conference execution
-                </span>
-              </div>
             </FadeIn>
           </div>
         </section>
 
         <section className="bg-[#f7f3eb] px-6 py-20">
-          <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="-mx-6 flex snap-x gap-5 overflow-x-auto px-6 pb-4 sm:mx-auto sm:grid sm:max-w-6xl sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
             {secretariat.map((member, index) => (
-              <FadeIn key={member.id} delay={index * 0.04} className="h-full">
+              <FadeIn
+                key={member.id}
+                delay={index * 0.04}
+                className="h-full min-w-[78vw] snap-start sm:min-w-0"
+              >
                 <SecretariatCard member={member} priority={index < 3} />
               </FadeIn>
             ))}

@@ -8,7 +8,7 @@ import ResourceIcon from "@/components/ResourceIcon";
 
 const links = [
   { href: "/#about", label: "About" },
-  { href: "/#secretariat", label: "Secretariat" },
+  { href: "/secretariat", label: "Secretariat" },
   { href: "/#committees", label: "Committees" },
   { href: "/#dates", label: "Dates" },
 ];
@@ -58,7 +58,7 @@ export default function ResourceNav({ resourceName }: { resourceName: string }) 
         </Link>
 
         <div className="hidden md:flex items-center gap-6 min-w-0">
-          <span className="hidden lg:block text-white/60 text-xs font-medium tracking-widest uppercase truncate max-w-40">
+          <span className="hidden lg:block text-white/78 text-xs font-medium tracking-widest uppercase truncate max-w-40">
             {resourceName}
           </span>
           <span className="hidden lg:block w-px h-4 bg-white/15" />
@@ -67,7 +67,7 @@ export default function ResourceNav({ resourceName }: { resourceName: string }) 
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setResourcesOpen((v) => !v)}
-              className="flex items-center gap-1.5 text-white/70 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+              className="flex items-center gap-1.5 text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
               aria-expanded={resourcesOpen}
             >
               Resources
@@ -98,7 +98,7 @@ export default function ResourceNav({ resourceName }: { resourceName: string }) 
                       <span className="block text-white/85 text-sm font-medium leading-tight truncate">
                         {r.short}
                       </span>
-                      <span className="block text-white/40 text-xs leading-tight truncate">
+                      <span className="block text-white/88 text-xs leading-tight truncate">
                         {r.subtitle}
                       </span>
                     </span>
@@ -112,7 +112,7 @@ export default function ResourceNav({ resourceName }: { resourceName: string }) 
             <Link
               key={l.href}
               href={l.href}
-              className="text-white/70 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+              className="text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
             >
               {l.label}
             </Link>
@@ -147,7 +147,7 @@ export default function ResourceNav({ resourceName }: { resourceName: string }) 
                   key={r.id}
                   href={`/resources/${r.id}`}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 text-white/80 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+                  className="flex items-center gap-3 text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#c8963e]/15 text-[#e8b96a]">
                     <ResourceIcon icon={r.icon} className="h-3.5 w-3.5" />
@@ -165,7 +165,7 @@ export default function ResourceNav({ resourceName }: { resourceName: string }) 
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-white/80 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+              className="text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
             >
               {l.label}
             </Link>

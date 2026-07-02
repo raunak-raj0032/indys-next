@@ -100,7 +100,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={introComplete ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-3 text-xs text-white/50 tracking-widest uppercase mb-10"
+          className="flex flex-wrap items-center justify-center gap-3 text-xs text-white/72 tracking-widest uppercase mb-10"
         >
           <span>First Edition</span>
           <span className="text-[#c8963e]">/</span>

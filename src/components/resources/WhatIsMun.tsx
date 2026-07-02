@@ -113,7 +113,7 @@ export default function WhatIsMun() {
       {/* Definition */}
       <section className="max-w-3xl mx-auto">
         <FadeIn>
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             The Basics
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl md:text-3xl font-bold mb-5 leading-snug">
@@ -124,7 +124,7 @@ export default function WhatIsMun() {
             educational activity where students learn about diplomacy, international relations, and the
             United Nations — by actually <em>doing</em> it.
           </p>
-          <p className="text-[#5a5a5a] text-base leading-relaxed">
+          <p className="section-copy">
             At a conference, you (the delegate) represent a country or organisation inside a simulation of
             a real UN committee. You discuss and debate global issues with everyone else in the room, and
             try to find solutions through diplomacy — exactly the way real UN delegates do. Conferences run
@@ -150,7 +150,7 @@ export default function WhatIsMun() {
               ].map(([k, v]) => (
                 <div key={k} className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1 sm:gap-4 px-6 py-3.5">
                   <dt className="text-[#0d1b3e] font-semibold text-sm">{k}</dt>
-                  <dd className="text-[#5a5a5a] text-sm leading-relaxed">{v}</dd>
+                  <dd className="card-copy">{v}</dd>
                 </div>
               ))}
             </dl>
@@ -161,20 +161,20 @@ export default function WhatIsMun() {
       {/* History */}
       <section className="max-w-3xl mx-auto mt-20">
         <FadeIn>
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             A Bit of History
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-5">
             Older than the UN itself
           </h3>
-          <p className="text-[#5a5a5a] text-base leading-relaxed mb-4">
+          <p className="section-copy mb-4">
             Students were simulating world diplomacy before the United Nations even existed. The first
             recorded conference ran at the <strong className="text-[#0d1b3e]">University of Oxford in 1921</strong>{" "}
             — as a <em>Model League of Nations</em>, since the UN wasn&apos;t founded until 1945. The idea
             crossed the Atlantic to Harvard in the 1920s, and through the 1940s the simulations switched
             from the failed League over to the new United Nations.
           </p>
-          <p className="text-[#5a5a5a] text-base leading-relaxed">
+          <p className="section-copy">
             Today MUN is one of the largest student activities in the world, with conferences on every
             continent and hundreds of thousands of delegates each year.
           </p>
@@ -197,7 +197,7 @@ export default function WhatIsMun() {
                     {i + 1}
                   </span>
                   <p className="text-[#0d1b3e] font-semibold text-sm leading-snug mb-1">{step.label}</p>
-                  <p className="text-[#6b6b6b] text-xs leading-relaxed">{step.sub}</p>
+                  <p className="fine-copy">{step.sub}</p>
                 </div>
                 {/* connector arrow (desktop) */}
                 {i < flow.length - 1 && (
@@ -217,13 +217,13 @@ export default function WhatIsMun() {
       {/* Committee types */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-10">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             The Rooms You Can Sit In
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             Types of committees
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             Not all committees feel the same. Bigger rooms are more formal and beginner-friendly; smaller
             ones move fast and reward quick thinking.
           </p>
@@ -240,7 +240,7 @@ export default function WhatIsMun() {
                     <h4 className="text-[#0d1b3e] font-bold text-base">{c.name}</h4>
                     <span className="text-[#9a6f24] text-[11px] font-semibold">{c.size}</span>
                   </div>
-                  <p className="text-[#5a5a5a] text-sm leading-relaxed">{c.body}</p>
+                  <p className="card-copy">{c.body}</p>
                 </div>
               </div>
             </FadeIn>
@@ -251,7 +251,7 @@ export default function WhatIsMun() {
       {/* Who's who */}
       <section className="max-w-3xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Who&apos;s Who
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold">
@@ -263,7 +263,7 @@ export default function WhatIsMun() {
             {roles.map((r) => (
               <div key={r.role} className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-1 sm:gap-4 px-6 py-4">
                 <p className="text-[#0d1b3e] font-bold text-sm">{r.role}</p>
-                <p className="text-[#5a5a5a] text-sm leading-relaxed">{r.what}</p>
+                <p className="card-copy">{r.what}</p>
               </div>
             ))}
           </div>
@@ -273,7 +273,7 @@ export default function WhatIsMun() {
       {/* How to prepare */}
       <section className="max-w-3xl mx-auto mt-20">
         <FadeIn className="text-center mb-10">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Before You Walk In
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold">
@@ -290,7 +290,7 @@ export default function WhatIsMun() {
                     {i + 1}
                   </span>
                   <p className="text-[#0d1b3e] font-semibold text-base leading-tight">{s.n}</p>
-                  <p className="text-[#5a5a5a] text-sm leading-relaxed mt-1">{s.d}</p>
+                  <p className="card-copy mt-1">{s.d}</p>
                 </div>
               </FadeIn>
             ))}
@@ -301,7 +301,7 @@ export default function WhatIsMun() {
       {/* Benefits */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-10">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Why bother?
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold">
@@ -318,7 +318,7 @@ export default function WhatIsMun() {
                   </svg>
                 </span>
                 <h4 className="text-[#0d1b3e] font-bold text-base mb-2">{b.title}</h4>
-                <p className="text-[#5a5a5a] text-sm leading-relaxed">{b.body}</p>
+                <p className="card-copy">{b.body}</p>
               </div>
             </FadeIn>
           ))}
@@ -328,13 +328,13 @@ export default function WhatIsMun() {
       {/* Glossary */}
       <section className="max-w-5xl mx-auto mt-20">
         <FadeIn className="text-center mb-8">
-          <span className="block text-[#c8963e] text-xs font-semibold tracking-[0.14em] uppercase mb-3">
+          <span className="block text-[#a86f1f] text-base font-extrabold tracking-[0.08em] uppercase mb-3 md:text-lg">
             Speak the Language
           </span>
           <h3 className="font-[family-name:var(--font-serif)] text-[#0d1b3e] text-2xl font-bold mb-2">
             Six words you&apos;ll hear on day one
           </h3>
-          <p className="text-[#6b6b6b] text-sm max-w-xl mx-auto">
+          <p className="section-copy mx-auto max-w-2xl">
             MUN has its own vocabulary. Learn these and the rest of the jargon falls into place quickly.
           </p>
         </FadeIn>
@@ -343,7 +343,7 @@ export default function WhatIsMun() {
             <FadeIn key={g.term} delay={i * 0.05}>
               <div className="h-full bg-white border border-[#ede8de] rounded-2xl p-5 shadow-sm">
                 <h4 className="text-[#0d1b3e] font-bold text-sm mb-1.5">{g.term}</h4>
-                <p className="text-[#5a5a5a] text-sm leading-relaxed">{g.def}</p>
+                <p className="card-copy">{g.def}</p>
               </div>
             </FadeIn>
           ))}
@@ -357,14 +357,14 @@ export default function WhatIsMun() {
             <h3 className="font-[family-name:var(--font-serif)] text-white text-xl font-bold mb-3">
               What do committees actually debate?
             </h3>
-            <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
+            <p className="dark-card-copy mb-6 max-w-xl mx-auto">
               Pretty much anything that matters on the world stage. A few of the classics:
             </p>
             <div className="flex flex-wrap justify-center gap-2.5">
               {topics.map((t) => (
                 <span
                   key={t}
-                  className="bg-white/8 text-white/80 text-sm font-medium px-4 py-2 rounded-full border border-white/12"
+                  className="bg-white/8 text-white/88 text-sm font-medium px-4 py-2 rounded-full border border-white/12"
                 >
                   {t}
                 </span>

@@ -302,7 +302,7 @@ export const secretariat = [
   {
     id: "sourodeep-ghosh",
     name: "Sourodeep Ghosh",
-    title: "High Representative of India to INDYS",
+    title: "🇮🇳 High Representative of India to Nepal",
     image: "/secretariat/sourodeep-ghosh.jpg",
     initials: "SG",
     featured: true,
@@ -310,8 +310,8 @@ export const secretariat = [
   {
     id: "kunwar-dipankar",
     name: "Kunwar Dipankar",
-    title: "High Representative of Nepal to INDYS",
-    image: null,
+    title: "🇳🇵 High Representative of Nepal to India",
+    image: "/secretariat/kunwar-dipankar.jpg" as string | null,
     initials: "KD",
     featured: true,
   },
@@ -341,17 +341,17 @@ export const secretariat = [
   },
   {
     id: "prishir",
-    name: "Prishir",
+    name: "Prishir Shah",
     title: "Director of Sponsorship and Outreach",
-    image: "/secretariat/prishir.jpg",
-    initials: "P",
+    image: "/secretariat/prishir-new.jpeg",
+    initials: "PS",
     featured: false,
   },
 ] as const;
 
 export const stats = [
   { num: "500+", label: "Total Delegates", sub: "Students from 30+ schools across India and Nepal" },
-  { num: "10",   label: "Committees",       sub: "UN bodies, regional forums, crisis simulations and press" },
+  { num: "11",   label: "Committees",       sub: "UN bodies, regional forums, crisis simulations and press" },
   { num: "3",    label: "Conference Days",  sub: "Nov 20, 21 & 22 — full committee sessions each day" },
   { num: "1",    label: "Historic First",   sub: "First authorized bilateral India–Nepal MUN conference" },
 ] as const;

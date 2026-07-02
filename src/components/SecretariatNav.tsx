@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const links = [
   { href: "/#about", label: "About" },
-  { href: "/#secretariat", label: "Secretariat" },
+  { href: "/secretariat", label: "Secretariat" },
   { href: "/#committees", label: "Committees" },
   { href: "/#dates", label: "Dates" },
 ];
@@ -44,7 +44,7 @@ export default function SecretariatNav() {
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
-          <span className="hidden max-w-40 truncate text-xs font-medium uppercase tracking-widest text-white/60 lg:block">
+          <span className="hidden max-w-40 truncate text-xs font-medium uppercase tracking-widest text-white/78 lg:block">
             Secretariat
           </span>
           <span className="hidden h-4 w-px bg-white/15 lg:block" />
@@ -52,7 +52,7 @@ export default function SecretariatNav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium tracking-wide text-white/70 transition-colors hover:text-[#e8b96a]"
+              className="text-sm font-medium tracking-wide text-white/82 transition-colors hover:text-[#e8b96a]"
             >
               {link.label}
             </Link>
@@ -89,7 +89,7 @@ export default function SecretariatNav() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="text-sm font-medium text-white/80 transition-colors hover:text-[#e8b96a]"
+              className="text-sm font-medium text-white/88 transition-colors hover:text-[#e8b96a]"
             >
               {link.label}
             </Link>

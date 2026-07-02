@@ -7,7 +7,7 @@ import { committees } from "@/lib/data";
 
 const links = [
   { href: "/#about", label: "About" },
-  { href: "/#secretariat", label: "Secretariat" },
+  { href: "/secretariat", label: "Secretariat" },
   { href: "/#dates", label: "Dates" },
   { href: "/#partners", label: "Partners" },
 ];
@@ -57,7 +57,7 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
         </Link>
 
         <div className="hidden md:flex items-center gap-6 min-w-0">
-          <span className="hidden lg:block text-white/60 text-xs font-medium tracking-widest uppercase truncate max-w-32">
+          <span className="hidden lg:block text-white/78 text-xs font-medium tracking-widest uppercase truncate max-w-32">
             {committeeName}
           </span>
           <span className="hidden lg:block w-px h-4 bg-white/15" />
@@ -66,7 +66,7 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setCommitteesOpen((v) => !v)}
-              className="flex items-center gap-1.5 text-white/70 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+              className="flex items-center gap-1.5 text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
               aria-expanded={committeesOpen}
             >
               Committees
@@ -103,7 +103,7 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
                       <span className="block text-white/85 text-sm font-medium leading-tight truncate">
                         {c.abbr}
                       </span>
-                      <span className="block text-white/40 text-xs leading-tight truncate">
+                      <span className="block text-white/88 text-xs leading-tight truncate">
                         {c.name}
                       </span>
                     </span>
@@ -117,7 +117,7 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
             <Link
               key={l.href}
               href={l.href}
-              className="text-white/70 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+              className="text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
             >
               {l.label}
             </Link>
@@ -152,7 +152,7 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
                   key={c.id}
                   href={`/committees/${c.id}`}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 text-white/80 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+                  className="flex items-center gap-3 text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/95 p-1">
                     <Image
@@ -176,7 +176,7 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-white/80 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+              className="text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
             >
               {l.label}
             </Link>
