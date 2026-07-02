@@ -7,25 +7,25 @@ const featuredSecretariat = secretariat.filter((member) => member.featured);
 
 export default function Secretariat() {
   return (
-    <section id="secretariat" className="bg-white px-6 py-24">
+    <section id="secretariat" className="bg-white px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-12">
+        <div className="mb-8 md:mb-12">
           <FadeIn>
             <span className="section-eyebrow mb-3">
               The team behind INDYS
             </span>
-            <h2 className="font-[family-name:var(--font-serif)] text-4xl font-bold leading-tight text-[#0d1b3e] md:text-5xl">
+            <h2 className="font-[family-name:var(--font-serif)] text-3xl font-bold leading-tight text-[#0d1b3e] md:text-5xl">
               Meet Our Secretariat
             </h2>
           </FadeIn>
         </div>
 
-        <div className="-mx-6 flex snap-x gap-5 overflow-x-auto px-6 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
+        <div className="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
           {featuredSecretariat.map((member, index) => (
             <FadeIn
               key={member.id}
               delay={index * 0.06}
-              className="h-full min-w-[78vw] snap-start sm:min-w-0"
+              className="h-full min-w-[76vw] snap-start sm:min-w-0"
             >
               <SecretariatCard member={member} priority={index < 2} />
             </FadeIn>

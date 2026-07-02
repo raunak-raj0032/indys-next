@@ -37,6 +37,7 @@ body {
   .section-eyebrow {
     @apply block text-base font-extrabold uppercase text-[#a86f1f] md:text-lg;
     letter-spacing: 0.08em;
+    color: var(--gold);
   }
 
   .section-copy {

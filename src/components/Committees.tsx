@@ -7,17 +7,17 @@ const homeCommittees = committees.slice(0, 4);
 
 export default function Committees() {
   return (
-    <section id="committees" className="bg-[#f7f3eb] py-24 px-6">
+    <section id="committees" className="bg-[#f7f3eb] py-16 px-4 sm:px-6 md:py-24">
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-4">
           <span className="section-eyebrow mb-3">
             Eleven Committees. One Stage.
           </span>
-          <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold text-[#0d1b3e] leading-tight">
+          <h2 className="font-[family-name:var(--font-serif)] text-3xl md:text-5xl font-bold text-[#0d1b3e] leading-tight">
             Every Committee at INDYS<br className="hidden sm:block" /> is Chosen for a Reason.
           </h2>
         </FadeIn>
-        <FadeIn delay={0.1} className="text-center mb-14">
+        <FadeIn delay={0.1} className="text-center mb-9 md:mb-14">
           <p className="section-copy mx-auto max-w-2xl">
             Together they represent the full spectrum of international diplomacy — from the world&apos;s
             highest security chamber to a crisis room that has no rules except power, with a press
@@ -31,13 +31,13 @@ export default function Committees() {
               return (
                 <FadeIn key={c.id} delay={0} className="md:col-span-3">
                   <Link href={`/committees/${c.id}`} className="group block">
-                    <div className="bg-[#0d1b3e] border-2 border-[#c8963e] rounded-xl p-8 md:p-10 overflow-hidden group-hover:border-[#e8b96a] transition-colors duration-200">
-                      <div className="grid gap-8 md:grid-cols-[1fr_220px] md:items-center">
+                    <div className="bg-[#0d1b3e] border-2 border-[#c8963e] rounded-xl p-5 sm:p-8 md:p-10 overflow-hidden group-hover:border-[#e8b96a] transition-colors duration-200">
+                      <div className="grid gap-6 md:grid-cols-[1fr_220px] md:items-center md:gap-8">
                         <div>
-                          <span className="inline-block bg-[#c8963e] text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded mb-5">
+                          <span className="inline-block bg-[#c8963e] text-white text-[0.68rem] font-bold tracking-widest uppercase px-3 py-1 rounded mb-4 sm:text-xs sm:mb-5">
                             {c.tag}
                           </span>
-                          <h3 className="font-[family-name:var(--font-serif)] text-white text-3xl font-bold mb-1 group-hover:text-[#e8b96a] transition-colors duration-200">
+                          <h3 className="font-[family-name:var(--font-serif)] text-white text-2xl sm:text-3xl font-bold mb-1 group-hover:text-[#e8b96a] transition-colors duration-200">
                             {c.name}
                           </h3>
                           {c.subtitle && (
@@ -89,11 +89,11 @@ export default function Committees() {
 export function CommitteeCard({ c }: { c: (typeof committees)[number] }) {
   return (
     <Link href={`/committees/${c.id}`} className="group block h-full">
-      <div className="bg-white border border-[#ede8de] rounded-xl p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 h-full flex flex-col">
-        <div className="mb-5 flex min-h-20 items-start justify-between gap-5">
+      <div className="bg-white border border-[#ede8de] rounded-xl p-5 sm:p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 h-full flex flex-col">
+        <div className="mb-4 flex min-h-16 items-start justify-between gap-4 sm:mb-5 sm:min-h-20 sm:gap-5">
           <div>
             {c.abbr && (
-              <div className="font-[family-name:var(--font-serif)] text-3xl font-black text-[#c8963e] leading-none mb-2">
+              <div className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl font-black text-[#c8963e] leading-none mb-2">
                 {c.abbr}
               </div>
             )}
@@ -129,8 +129,8 @@ export function CommitteeLogo({
     <div
       className={
         featured
-          ? "mx-auto flex h-48 w-48 items-center justify-center rounded-full bg-white/96 p-7 shadow-2xl shadow-black/20"
-          : "shrink-0 flex h-20 w-20 items-center justify-center rounded-full bg-[#faf4e8] p-3"
+          ? "mx-auto flex h-36 w-36 items-center justify-center rounded-full bg-white/96 p-5 shadow-2xl shadow-black/20 sm:h-48 sm:w-48 sm:p-7"
+          : "shrink-0 flex h-16 w-16 items-center justify-center rounded-full bg-[#faf4e8] p-2.5 sm:h-20 sm:w-20 sm:p-3"
       }
     >
       <Image

@@ -74,12 +74,12 @@ const partnerMetrics = [
 
 export default function Partners() {
   return (
-    <section id="partners" className="bg-[#f7f3eb] px-6 py-24">
+    <section id="partners" className="bg-[#f7f3eb] px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="mb-9 grid gap-6 lg:mb-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-10">
           <FadeIn>
             <span className="section-eyebrow mb-3">Partnership Tiers</span>
-            <h2 className="font-[family-name:var(--font-serif)] text-4xl font-bold leading-tight text-[#0d1b3e] md:text-5xl">
+            <h2 className="font-[family-name:var(--font-serif)] text-3xl font-bold leading-tight text-[#0d1b3e] md:text-5xl">
               Invest in the Room Where Decisions Begin
             </h2>
           </FadeIn>
@@ -89,13 +89,13 @@ export default function Partners() {
               and policy-facing guests. The tiers below separate summit ownership, venue
               presence, student touchpoints, and targeted brand visibility.
             </p>
-            <div className="mt-7 grid grid-cols-3 overflow-hidden rounded-lg border border-[#e1d5bd] bg-white">
+            <div className="mt-5 grid grid-cols-3 overflow-hidden rounded-lg border border-[#e1d5bd] bg-white md:mt-7">
               {partnerMetrics.map(([value, label]) => (
-                <div key={label} className="border-r border-[#ede8de] px-4 py-4 last:border-r-0">
-                  <p className="font-[family-name:var(--font-serif)] text-2xl font-bold leading-none text-[#0d1b3e]">
+                <div key={label} className="border-r border-[#ede8de] px-2.5 py-3 last:border-r-0 sm:px-4 sm:py-4">
+                  <p className="font-[family-name:var(--font-serif)] text-xl font-bold leading-none text-[#0d1b3e] sm:text-2xl">
                     {value}
                   </p>
-                  <p className="mt-1 text-sm font-medium leading-snug text-[#555555]">{label}</p>
+                  <p className="mt-1 text-xs font-medium leading-snug text-[#555555] sm:text-sm">{label}</p>
                 </div>
               ))}
             </div>
@@ -112,8 +112,8 @@ export default function Partners() {
                   className={`group relative flex h-full flex-col overflow-hidden rounded-xl border-2 ${style.border} ${style.surface} transition-all duration-200 hover:-translate-y-1 hover:shadow-xl`}
                 >
                   <div className={`h-1.5 w-full ${style.accent}`} />
-                  <div className="flex h-full flex-col p-7 md:p-8">
-                    <div className="mb-7 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex h-full flex-col p-5 sm:p-7 md:p-8">
+                    <div className="mb-5 flex flex-col gap-4 sm:mb-7 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
                       <div>
                         <span
                           className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${style.badge}`}
@@ -121,7 +121,7 @@ export default function Partners() {
                           {tier.role}
                         </span>
                         <h3
-                          className={`mt-4 font-[family-name:var(--font-serif)] text-3xl font-bold leading-tight ${style.title}`}
+                          className={`mt-3 font-[family-name:var(--font-serif)] text-2xl font-bold leading-tight sm:mt-4 sm:text-3xl ${style.title}`}
                         >
                           {tier.name}
                         </h3>
@@ -141,11 +141,11 @@ export default function Partners() {
                       </div>
                     </div>
 
-                    <p className={`mb-7 text-base font-semibold leading-relaxed ${style.copy}`}>
+                    <p className={`mb-5 text-base font-semibold leading-relaxed sm:mb-7 ${style.copy}`}>
                       {tier.category}
                     </p>
 
-                    <div className="mb-7 grid gap-3 sm:grid-cols-2">
+                    <div className="mb-6 grid gap-3 sm:mb-7 sm:grid-cols-2">
                       {tier.perks.map((perk) => (
                         <div key={perk} className="flex items-start gap-3">
                           <span
@@ -187,7 +187,7 @@ export default function Partners() {
         </div>
 
         <FadeIn delay={0.12} className="mt-10">
-          <div className="grid gap-5 rounded-xl border border-[#d9c7a5] bg-white px-6 py-7 shadow-sm md:grid-cols-[1fr_auto] md:items-center md:px-8">
+          <div className="grid gap-5 rounded-xl border border-[#d9c7a5] bg-white px-5 py-6 shadow-sm md:grid-cols-[1fr_auto] md:items-center md:px-8 md:py-7">
             <div>
               <p className="section-eyebrow mb-2">Partner with Us</p>
               <p className="section-copy max-w-2xl">

@@ -17,7 +17,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-center px-6 pt-24 pb-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-center px-4 pt-24 pb-16 sm:px-6 sm:pb-20">
       <div className="absolute inset-0 bg-gradient-to-br from-[#080f20] via-[#0d1b3e] to-[#132150]" />
 
       <video
@@ -55,7 +55,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9, y: 16 }}
           animate={introComplete ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 16 }}
           transition={{ duration: 0.7 }}
-          className="mx-auto mb-6 flex h-36 w-36 items-center justify-center rounded-full border border-[#c8963e]/35 bg-white/95 p-2 shadow-2xl shadow-black/25 sm:h-44 sm:w-44"
+          className="mx-auto mb-5 flex h-28 w-28 items-center justify-center rounded-full border border-[#c8963e]/35 bg-white/95 p-2 shadow-2xl shadow-black/25 sm:mb-6 sm:h-44 sm:w-44"
         >
           <Image
             src="/brand/indys-seal-mark.png"
@@ -91,7 +91,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={introComplete ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="font-[family-name:var(--font-serif)] italic text-[#e8b96a] text-lg mt-2 mb-7"
+          className="font-[family-name:var(--font-serif)] italic text-[#e8b96a] text-base mt-2 mb-6 sm:text-lg sm:mb-7"
         >
           Two Nations. One Dialogue.
         </motion.p>
@@ -100,7 +100,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={introComplete ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-3 text-xs text-white/72 tracking-widest uppercase mb-10"
+          className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 text-[0.68rem] text-white/72 tracking-widest uppercase mb-8 sm:gap-3 sm:text-xs sm:mb-10"
         >
           <span>First Edition</span>
           <span className="text-[#c8963e]">/</span>
@@ -113,17 +113,17 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.5, delay: 0.75 }}
-          className="flex flex-wrap gap-4 justify-center"
+          className="flex flex-col gap-3 justify-center sm:flex-row sm:flex-wrap sm:gap-4"
         >
           <a
             href="#committees"
-            className="bg-[#c8963e] hover:bg-[#e8b96a] text-white font-semibold px-8 py-3.5 rounded-md transition-colors text-sm tracking-wide"
+            className="bg-[#c8963e] hover:bg-[#e8b96a] text-white font-semibold px-6 py-3 rounded-md transition-colors text-sm tracking-wide sm:px-8 sm:py-3.5"
           >
             Explore Committees
           </a>
           <a
             href="#partners"
-            className="border border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-md transition-colors text-sm tracking-wide"
+            className="border border-white/40 hover:border-white text-white font-semibold px-6 py-3 rounded-md transition-colors text-sm tracking-wide sm:px-8 sm:py-3.5"
           >
             Become a Partner
           </a>

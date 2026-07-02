@@ -297,22 +297,25 @@ export const secretariat = [
     title: "Secretary-General",
     image: "/secretariat/yash-sharma.jpg",
     initials: "YS",
+    flag: null,
     featured: true,
   },
   {
     id: "sourodeep-ghosh",
     name: "Sourodeep Ghosh",
-    title: "🇮🇳 High Representative of India to Nepal",
+    title: "High Representative of India to INDYS",
     image: "/secretariat/sourodeep-ghosh.jpg",
     initials: "SG",
+    flag: "india",
     featured: true,
   },
   {
     id: "kunwar-dipankar",
     name: "Kunwar Dipankar",
-    title: "🇳🇵 High Representative of Nepal to India",
+    title: "High Representative of Nepal to INDYS",
     image: "/secretariat/kunwar-dipankar.jpg" as string | null,
     initials: "KD",
+    flag: "nepal",
     featured: true,
   },
   {
@@ -321,6 +324,7 @@ export const secretariat = [
     title: "Director-General",
     image: "/secretariat/sangam-lama.jpg",
     initials: "SL",
+    flag: null,
     featured: true,
   },
   {
@@ -329,6 +333,7 @@ export const secretariat = [
     title: "Director-General of Conference Systems",
     image: "/secretariat/raunak-raj.jpg",
     initials: "RR",
+    flag: null,
     featured: false,
   },
   {
@@ -337,6 +342,7 @@ export const secretariat = [
     title: "Director of Marketing",
     image: "/secretariat/mimansha-joshi.jpg",
     initials: "MJ",
+    flag: null,
     featured: false,
   },
   {
@@ -345,6 +351,7 @@ export const secretariat = [
     title: "Director of Sponsorship and Outreach",
     image: "/secretariat/prishir-new.jpeg",
     initials: "PS",
+    flag: null,
     featured: false,
   },
 ] as const;
@@ -354,29 +361,6 @@ export const stats = [
   { num: "11",   label: "Committees",       sub: "UN bodies, regional forums, crisis simulations and press" },
   { num: "3",    label: "Conference Days",  sub: "Nov 20, 21 & 22 — full committee sessions each day" },
   { num: "1",    label: "Historic First",   sub: "First authorized bilateral India–Nepal MUN conference" },
-] as const;
-
-export const reasons = [
-  {
-    num: "1",
-    heading: "Nepal's border crossing is 30 km away",
-    body: "The Panitanki–Kakarbhitta crossing — India's most active Nepal border crossing — is under 30 km from the city centre. No delegate travels far to reach INDYS.",
-  },
-  {
-    num: "2",
-    heading: "Nepal's Consulate General is here",
-    body: "The Consulate General of Nepal has its permanent headquarters in Siliguri — an extraordinary distinction that gives INDYS direct access to official bilateral diplomatic channels.",
-  },
-  {
-    num: "3",
-    heading: "Gateway to four nations",
-    body: "Siliguri sits at the junction of India, Nepal, Bhutan, and Bangladesh. No other city in India has this four-nation geographic significance.",
-  },
-  {
-    num: "4",
-    heading: "Hub of Indo–Nepal bilateral commerce",
-    body: "Siliguri is the de facto capital of Indo–Nepal trade, transit, and logistics. The economic relationship INDYS's committees debate is the same one that built this city.",
-  },
 ] as const;
 
 export const casePoints = [

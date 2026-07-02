@@ -36,10 +36,38 @@ export default function SecretariatCard({
         <h3 className="font-[family-name:var(--font-serif)] text-2xl font-bold leading-tight text-[#0d1b3e]">
           {member.name}
         </h3>
-        <p className="mt-2 text-[0.9rem] font-semibold uppercase leading-relaxed tracking-[0.08em] text-[#9a6f24]">
+        <p className="mt-2 flex items-center justify-center gap-2 text-[0.9rem] font-semibold uppercase leading-relaxed tracking-[0.08em] text-[#9a6f24]">
+          {member.flag && <FlagBadge flag={member.flag} />}
           {member.title}
         </p>
       </div>
     </article>
+  );
+}
+
+function FlagBadge({ flag }: { flag: "india" | "nepal" }) {
+  const flagMeta = {
+    india: {
+      src: "/flags/india.svg",
+      alt: "Flag of India",
+      className: "h-4 w-6 rounded-[2px] border border-black/15 bg-white object-cover",
+    },
+    nepal: {
+      src: "/flags/nepal.svg",
+      alt: "Flag of Nepal",
+      className: "h-5 w-5 object-contain",
+    },
+  }[flag];
+
+  return (
+    <span className="inline-flex shrink-0 items-center justify-center" title={flagMeta.alt}>
+      <Image
+        src={flagMeta.src}
+        alt={flagMeta.alt}
+        width={flag === "india" ? 24 : 20}
+        height={flag === "india" ? 16 : 20}
+        className={flagMeta.className}
+      />
+    </span>
   );
 }

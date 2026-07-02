@@ -53,7 +53,7 @@ export default function RegistrationCountdown() {
   return (
     <section
       id="registration"
-      className="relative overflow-hidden bg-[#0d1b3e] px-6 py-16 text-white scroll-mt-20 md:py-20"
+      className="relative overflow-hidden bg-[#0d1b3e] px-4 py-12 text-white scroll-mt-20 sm:px-6 md:py-20"
       aria-labelledby="registration-countdown-title"
     >
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(200,150,62,0.16),transparent_38%,rgba(19,33,80,0.72))]" />
@@ -61,28 +61,28 @@ export default function RegistrationCountdown() {
       <div className="absolute inset-x-0 bottom-0 h-px bg-[#c8963e]/25" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl">
-        <FadeIn className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+        <FadeIn className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
           <div>
-            <span className="mb-3 block text-sm font-extrabold uppercase tracking-[0.14em] text-[#e8b96a]">
+            <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.12em] text-[#e8b96a] sm:text-sm sm:tracking-[0.14em]">
               Registrations Opening Soon
             </span>
             <h2
               id="registration-countdown-title"
-              className="font-[family-name:var(--font-serif)] text-4xl font-bold leading-tight text-white md:text-5xl"
+              className="font-[family-name:var(--font-serif)] text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl"
             >
               Delegate registrations open on 15 August 2026.
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/78 md:text-lg">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/78 sm:text-base md:text-lg">
               The registration desk is currently preparing for launch. Mark your calendars and prepare to secure your spot.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-stretch justify-center gap-3 md:gap-4" aria-live="polite">
+          <div className="flex flex-nowrap items-stretch justify-center gap-1 overflow-visible sm:gap-3 md:gap-4" aria-live="polite">
             {units.map((unit, index) => (
-              <div key={unit.label} className="flex items-stretch gap-3 md:gap-4">
+              <div key={unit.label} className="flex min-w-0 items-stretch gap-1 sm:gap-3 md:gap-4">
                 {index > 0 && (
                   <span
-                    className="flex items-center pb-8 font-[family-name:var(--font-serif)] text-4xl font-black leading-none text-[#e8b96a] sm:pb-9 sm:text-5xl md:pb-10 md:text-6xl"
+                    className="flex items-center pb-5 font-[family-name:var(--font-serif)] text-2xl font-black leading-none text-[#e8b96a] sm:pb-9 sm:text-5xl md:pb-10 md:text-6xl"
                     aria-hidden="true"
                   >
                     :
@@ -113,7 +113,7 @@ function TimeBlock({ label, value }: { label: string; value: string }) {
 
   return (
     <div className="group relative overflow-hidden rounded-lg border border-[#c8963e]/28 bg-[#071225] shadow-2xl shadow-black/25">
-      <div className="relative flex min-h-28 items-center justify-center gap-1 border-b border-black/70 bg-black px-3 py-5 sm:min-h-32 sm:gap-1.5 sm:px-4">
+      <div className="relative flex min-h-14 items-center justify-center gap-0.5 border-b border-black/70 bg-black px-1.5 py-2.5 sm:min-h-32 sm:gap-1.5 sm:px-4 sm:py-5">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#e8b96a]/45 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(232,185,106,0.08),transparent_44%)]" />
 
@@ -126,7 +126,7 @@ function TimeBlock({ label, value }: { label: string; value: string }) {
           />
         ))}
       </div>
-      <div className="bg-[#c8963e] px-3 py-2 text-center text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-white">
+      <div className="bg-[#c8963e] px-1 py-1 text-center text-[0.46rem] font-extrabold uppercase tracking-[0.06em] text-white sm:px-3 sm:py-2 sm:text-[0.7rem] sm:tracking-[0.16em]">
         {label}
       </div>
     </div>
@@ -169,7 +169,7 @@ function DigitSlide({
 
   return (
     <div
-      className="flip-clock-card relative h-16 w-8 rounded-md border border-white/10 bg-black shadow-[inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-14px_24px_rgba(0,0,0,0.42)] [perspective:680px] sm:h-20 sm:w-10 md:h-24 md:w-12"
+      className="flip-clock-card relative h-9 w-[1.125rem] rounded border border-white/10 bg-black shadow-[inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-14px_24px_rgba(0,0,0,0.42)] [perspective:680px] sm:h-20 sm:w-10 sm:rounded-md md:h-24 md:w-12"
       style={{ "--flip-delay": `${index * 25}ms` } as CSSProperties}
     >
       <DigitHalf digit={currentDigit} position="top" />
@@ -218,7 +218,7 @@ function DigitHalf({
     <span
       className={[
         "absolute inset-x-0 h-1/2 overflow-hidden",
-        "before:absolute before:left-0 before:flex before:h-[200%] before:w-full before:items-center before:justify-center before:font-[family-name:var(--font-serif)] before:text-4xl before:font-black before:leading-none before:text-white before:content-[attr(data-value)] before:[font-variant-numeric:tabular-nums] sm:before:text-5xl md:before:text-6xl",
+        "before:absolute before:left-0 before:flex before:h-[200%] before:w-full before:items-center before:justify-center before:font-[family-name:var(--font-serif)] before:text-xl before:font-black before:leading-none before:text-white before:content-[attr(data-value)] before:[font-variant-numeric:tabular-nums] sm:before:text-5xl md:before:text-6xl",
         isTop
           ? "top-0 rounded-t-md bg-[#202020] before:top-0 before:border-b before:border-black/70 before:text-white/82"
           : "bottom-0 rounded-b-md bg-[#323232] before:-top-full before:text-white",
