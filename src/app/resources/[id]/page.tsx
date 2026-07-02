@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { resources } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import FadeIn from "@/components/FadeIn";
 import WhatIsMun from "@/components/resources/WhatIsMun";
 import MunProcedures from "@/components/resources/MunProcedures";
 import Resolutions from "@/components/resources/Resolutions";
+import { createMetadata, jsonLd, resourceJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return resources.map((r) => ({ id: r.id }));
@@ -18,14 +20,24 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
-}) {
+}): Promise<Metadata> {
   const { id } = await params;
-  const resource = resources.find((r) => r.id === id);
+  const resource = resources.find((r) => r.id === id) as (typeof resources)[number];
   if (!resource) return {};
-  return {
-    title: `${resource.title} — INDYS '26 Resources`,
+  return createMetadata({
+    title: `${resource.title} - INDYS '26 Resources`,
     description: resource.description,
-  };
+    path: `/resources/${resource.id}`,
+    image: resource.heroImage,
+    type: "article",
+    keywords: [
+      resource.title,
+      resource.subtitle,
+      "MUN resources",
+      "Model United Nations guide",
+      "delegate resources",
+    ],
+  });
 }
 
 const contentMap: Record<string, React.ReactNode> = {
@@ -47,6 +59,10 @@ export default async function ResourcePage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(resourceJsonLd(resource)) }}
+      />
       <ResourceNav resourceName={resource.title} />
 
       <main>

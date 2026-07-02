@@ -6,16 +6,43 @@ import SecretariatCard from "@/components/SecretariatCard";
 import SecretariatNav from "@/components/SecretariatNav";
 import SubpageFooter from "@/components/SubpageFooter";
 import FadeIn from "@/components/FadeIn";
+import { createMetadata, jsonLd, secretariatJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Meet Our Secretariat - INDYS '26",
   description:
     "Meet the INDYS '26 secretariat leading conference direction, systems, marketing, and outreach.",
-};
+  path: "/secretariat",
+  image: "/secretariat/yash-sharma.jpg",
+  keywords: ["INDYS secretariat", "MUN secretariat", "youth summit leadership"],
+});
+
+function cardGridPosition(index: number, total: number) {
+  const remainder = total % 3;
+  const firstLeftoverIndex = total - remainder;
+
+  if (remainder === 1 && index === firstLeftoverIndex) {
+    return "lg:col-start-3";
+  }
+
+  if (remainder === 2 && index === firstLeftoverIndex) {
+    return "lg:col-start-2";
+  }
+
+  if (remainder === 2 && index === firstLeftoverIndex + 1) {
+    return "lg:col-start-4";
+  }
+
+  return "";
+}
 
 export default function SecretariatPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(secretariatJsonLd()) }}
+      />
       <SecretariatNav />
       <main>
         <section className="relative flex min-h-[74vh] items-end overflow-hidden bg-[#060c1a] px-6 pb-14 pt-28 md:min-h-[78vh]">
@@ -77,12 +104,12 @@ export default function SecretariatPage() {
         </section>
 
         <section className="bg-[#f7f3eb] px-6 py-20">
-          <div className="-mx-6 flex snap-x gap-5 overflow-x-auto px-6 pb-4 sm:mx-auto sm:grid sm:max-w-6xl sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6">
             {secretariat.map((member, index) => (
               <FadeIn
                 key={member.id}
                 delay={index * 0.04}
-                className="h-full min-w-[78vw] snap-start sm:min-w-0"
+                className={`h-full lg:col-span-2 ${cardGridPosition(index, secretariat.length)}`}
               >
                 <SecretariatCard member={member} priority={index < 3} />
               </FadeIn>

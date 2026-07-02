@@ -6,16 +6,24 @@ import { CommitteeCard, CommitteeLogo } from "@/components/Committees";
 import CommitteeNav from "@/components/CommitteeNav";
 import FadeIn from "@/components/FadeIn";
 import SubpageFooter from "@/components/SubpageFooter";
+import { committeeListJsonLd, createMetadata, jsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Committees - INDYS '26",
   description:
     "Explore all INDYS '26 committees, from the Indo-Nepal Bilateral Meet to UN bodies, regional forums, crisis simulations, and press.",
-};
+  path: "/committees",
+  image: "/committees/bilateral-hero.jpg",
+  keywords: ["INDYS committees", "MUN committees", "UNSC MUN", "Indo-Nepal Bilateral Meet"],
+});
 
 export default function CommitteesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(committeeListJsonLd()) }}
+      />
       <CommitteeNav committeeName="Committees" />
       <main>
         <section className="relative flex min-h-[62vh] items-end overflow-hidden bg-[#060c1a] px-6 pb-14 pt-28">

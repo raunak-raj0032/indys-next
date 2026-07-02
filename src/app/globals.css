@@ -62,4 +62,62 @@ body {
   .dark-card-copy {
     @apply text-[0.97rem] leading-[1.7] text-white/82;
   }
+
+  .flip-clock-card {
+    transform-style: preserve-3d;
+  }
+
+  .flip-clock-card__top-flap {
+    animation: flip-clock-top 0.3s cubic-bezier(0.37, 0.01, 0.94, 0.35) var(--flip-delay, 0ms) both;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transform-origin: bottom;
+    transform-style: preserve-3d;
+  }
+
+  .flip-clock-card__bottom-flap {
+    animation: flip-clock-bottom 0.6s cubic-bezier(0.15, 0.45, 0.28, 1) var(--flip-delay, 0ms) both;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transform-origin: top;
+    transform-style: preserve-3d;
+  }
+}
+
+@keyframes flip-clock-top {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 0.99;
+    z-index: 6;
+  }
+
+  99% {
+    opacity: 0.99;
+  }
+
+  100% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+    z-index: 6;
+  }
+}
+
+@keyframes flip-clock-bottom {
+  0%,
+  50% {
+    transform: rotateX(90deg);
+    opacity: 0;
+    z-index: -1;
+  }
+
+  51% {
+    opacity: 0.99;
+    z-index: 7;
+  }
+
+  100% {
+    transform: rotateX(0deg);
+    opacity: 0.99;
+    z-index: 7;
+  }
 }

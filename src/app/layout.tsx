@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Source_Sans_3 } from "next/font/google";
+import {
+  createMetadata,
+  defaultDescription,
+  defaultTitle,
+  siteName,
+  siteUrl,
+} from "@/lib/seo";
 import "./globals.css";
 
 const sourceSans = Source_Sans_3({
@@ -16,10 +23,30 @@ const ebGaramond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "INDYS '26 — Indo-Nepal Diplomatic Youth Summit",
-  description:
-    "South Asia's first bilateral youth diplomacy conclave. 500+ delegates, 11 committees, and a dedicated press corps across 3 days in Siliguri, India — November 20–22, 2026.",
-  keywords: ["MUN", "Model United Nations", "INDYS", "Indo-Nepal", "Siliguri", "diplomacy", "youth summit"],
+  ...createMetadata({
+    title: defaultTitle,
+    description: defaultDescription,
+    path: "/",
+    keywords: [
+      "MUN",
+      "Model United Nations",
+      "Indo-Nepal",
+      "Siliguri",
+      "diplomacy",
+      "youth summit",
+      "India Nepal student conference",
+    ],
+  }),
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
+  authors: [{ name: "INDYS Secretariat" }],
+  creator: "INDYS Secretariat",
+  publisher: "INDYS Secretariat",
+  category: "education",
+  title: {
+    default: defaultTitle,
+    template: `%s | ${siteName}`,
+  },
 };
 
 export default function RootLayout({

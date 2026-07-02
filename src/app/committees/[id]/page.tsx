@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { committees } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -6,6 +7,7 @@ import CommitteeNav from "@/components/CommitteeNav";
 import SubpageFooter from "@/components/SubpageFooter";
 import FadeIn from "@/components/FadeIn";
 import ScrollToAboutArrow from "@/components/ScrollToAboutArrow";
+import { committeeJsonLd, createMetadata, jsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return committees.map((c) => ({ id: c.id }));
@@ -15,14 +17,23 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
-}) {
+}): Promise<Metadata> {
   const { id } = await params;
-  const committee = committees.find((c) => c.id === id);
+  const committee = committees.find((c) => c.id === id) as (typeof committees)[number];
   if (!committee) return {};
-  return {
-    title: `${committee.name} — INDYS '26`,
+  return createMetadata({
+    title: `${committee.name} - INDYS '26 Committee`,
     description: committee.description,
-  };
+    path: `/committees/${committee.id}`,
+    image: committee.heroImage,
+    keywords: [
+      committee.name,
+      committee.abbr,
+      committee.format,
+      `${committee.abbr} MUN`,
+      "INDYS committee",
+    ].filter(Boolean) as string[],
+  });
 }
 
 const difficultyStyles: Record<string, { bg: string; text: string; ring: string }> = {
@@ -52,6 +63,10 @@ export default async function CommitteePage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(committeeJsonLd(committee)) }}
+      />
       <CommitteeNav committeeName={displayName} />
 
       <main>

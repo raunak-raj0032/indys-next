@@ -182,7 +182,7 @@ export default function Nav() {
           ))}
           <li>
             <a
-              href="#contact"
+              href="#registration"
               className="bg-[#c8963e] hover:bg-[#e8b96a] text-white text-sm font-semibold px-5 py-2 rounded-md transition-colors"
             >
               Register
@@ -276,7 +276,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="#registration"
             onClick={() => setOpen(false)}
             className="bg-[#c8963e] text-white text-sm font-semibold px-5 py-2 rounded-md text-center"
           >
