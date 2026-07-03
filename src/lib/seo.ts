@@ -11,10 +11,10 @@ export const siteUrl = rawSiteUrl.startsWith("http")
   : `https://${rawSiteUrl.replace(/\/$/, "")}`;
 
 export const siteName = "INDYS '26";
-export const organizationName = "Indo-Nepal Diplomatic Youth Summit";
-export const defaultTitle = "INDYS '26 - Indo-Nepal Diplomatic Youth Summit";
+export const organizationName = "INDYS";
+export const defaultTitle = "INDYS 2026 - Indo-Nepal MUN & Diplomatic Youth Summit";
 export const defaultDescription =
-  "South Asia's first bilateral youth diplomacy conclave in Siliguri, India. INDYS '26 brings together 500+ delegates, 11 committees, and a dedicated press corps from November 20-22, 2026.";
+  "INDYS 2026 is an Indo-Nepal Model United Nations and youth diplomacy summit in Siliguri, India, bringing 500+ delegates and 11 committees together from November 20-22, 2026.";
 export const defaultOgImage = "/brand/indys-seal-mark.png";
 
 export function absoluteUrl(path = "/") {
@@ -61,7 +61,17 @@ export function createMetadata({
       "INDYS 2026",
       "Indo-Nepal Diplomatic Youth Summit",
       "Indo Nepal MUN",
+      "Indo-Nepal MUN",
+      "India Nepal MUN",
+      "Nepal MUN",
+      "India MUN",
+      "best MUN in Nepal",
+      "best MUN in India",
+      "best MUN conference",
+      "Nepal best MUN",
+      "India best MUN",
       "Model United Nations Siliguri",
+      "Model United Nations India Nepal",
       "youth diplomacy summit",
       ...keywords,
     ],
@@ -106,13 +116,36 @@ export function createMetadata({
 
 export const baseOrganizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "EducationalOrganization",
   "@id": `${siteUrl}/#organization`,
   name: organizationName,
-  alternateName: siteName,
+  legalName: "Indo-Nepal Diplomatic Youth Summit",
+  alternateName: [
+    siteName,
+    "INDYS 2026",
+    "INDYS Indo-Nepal MUN",
+    "Indo-Nepal Diplomatic Youth Summit",
+  ],
   url: siteUrl,
-  logo: absoluteUrl("/brand/indys-seal-mark.png"),
+  logo: {
+    "@type": "ImageObject",
+    url: absoluteUrl("/brand/indys-seal-mark.png"),
+    width: 1804,
+    height: 1804,
+  },
+  image: absoluteUrl("/brand/indys-seal-mark.png"),
   email: "info@indysofficial.com",
+  foundingDate: "2026",
+  areaServed: ["India", "Nepal", "South Asia"],
+  keywords:
+    "INDYS, INDYS 2026, Indo-Nepal MUN, Nepal MUN, India MUN, Model United Nations, youth diplomacy summit",
+  knowsAbout: [
+    "Model United Nations",
+    "India-Nepal relations",
+    "Youth diplomacy",
+    "South Asian diplomacy",
+    "Student leadership",
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Siliguri",
@@ -159,6 +192,8 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
     name: siteName,
+    alternateName: ["INDYS", "INDYS 2026", "Indo-Nepal MUN"],
+    description: defaultDescription,
     url: siteUrl,
     publisher: {
       "@id": `${siteUrl}/#organization`,

@@ -28,6 +28,11 @@ export default function About() {
                 bringing student delegates from India and Nepal under one roof.
               </p>
               <p>
+                For delegates searching for a serious India-Nepal MUN, a Nepal MUN, or a
+                Model United Nations conference in India with real bilateral substance, INDYS
+                is built around depth rather than spectacle.
+              </p>
+              <p>
                 Its committees move from global diplomacy to the local questions that shape
                 trade, transit, water, security, media, and people-to-people ties.
               </p>

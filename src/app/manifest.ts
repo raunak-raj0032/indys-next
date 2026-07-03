@@ -4,9 +4,11 @@ import { defaultDescription, defaultTitle } from "@/lib/seo";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: defaultTitle,
-    short_name: "INDYS '26",
+    short_name: "INDYS",
     description: defaultDescription,
     start_url: "/",
+    lang: "en-IN",
+    categories: ["education", "events"],
     display: "standalone",
     background_color: "#080f20",
     theme_color: "#0d1b3e",

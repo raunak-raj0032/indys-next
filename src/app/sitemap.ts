@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { committees, resources } from "@/lib/data";
 import { absoluteUrl } from "@/lib/seo";
 
-const lastModified = new Date("2026-07-02");
+const lastModified = new Date("2026-07-03");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
+      images: [absoluteUrl("/brand/indys-seal-mark.png")],
     },
     {
       url: absoluteUrl("/committees"),

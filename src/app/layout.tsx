@@ -39,6 +39,15 @@ export const metadata: Metadata = {
   }),
   metadataBase: new URL(siteUrl),
   applicationName: siteName,
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
+  },
   authors: [{ name: "INDYS Secretariat" }],
   creator: "INDYS Secretariat",
   publisher: "INDYS Secretariat",
