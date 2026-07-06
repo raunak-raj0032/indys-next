@@ -354,6 +354,24 @@ export const secretariat = [
     flag: null,
     featured: false,
   },
+  {
+    id: "tanu-priya",
+    name: "Tanu Priya",
+    title: "Co Director of Delegate Affairs",
+    image: "/secretariat/tanu-priya.jpg",
+    initials: "TP",
+    flag: null,
+    featured: false,
+  },
+  {
+    id: "garima-singh",
+    name: "Garima Singh",
+    title: "Co Director of Delegate Affairs",
+    image: "/secretariat/garima-singh.jpg",
+    initials: "GS",
+    flag: null,
+    featured: false,
+  },
 ] as const;
 
 export const stats = [

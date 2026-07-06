@@ -8,6 +8,10 @@ import SubpageFooter from "@/components/SubpageFooter";
 import FadeIn from "@/components/FadeIn";
 import { createMetadata, jsonLd, secretariatJsonLd } from "@/lib/seo";
 
+const bannerSecretariat = secretariat.filter(
+  (member) => !["tanu-priya", "garima-singh"].includes(member.id),
+);
+
 export const metadata: Metadata = createMetadata({
   title: "Meet Our Secretariat - INDYS '26",
   description:
@@ -47,7 +51,7 @@ export default function SecretariatPage() {
       <main>
         <section className="relative flex min-h-[74vh] items-end overflow-hidden bg-[#060c1a] px-6 pb-14 pt-28 md:min-h-[78vh]">
           <div className="absolute inset-0 grid grid-cols-2 gap-1 opacity-85 sm:grid-cols-3 lg:grid-cols-7">
-            {secretariat.map((member, index) => (
+            {bannerSecretariat.map((member, index) => (
               <div
                 key={member.id}
                 className={`relative min-h-44 overflow-hidden bg-[#0d1b3e] ${
@@ -103,7 +107,7 @@ export default function SecretariatPage() {
           </div>
         </section>
 
-        <section className="bg-[#f7f3eb] px-6 py-20">
+        <section className="bg-[#eadfce] px-6 py-20">
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6">
             {secretariat.map((member, index) => (
               <FadeIn

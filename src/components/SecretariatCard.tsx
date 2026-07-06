@@ -11,9 +11,9 @@ export default function SecretariatCard({
   priority?: boolean;
 }) {
   return (
-    <article className="group h-full overflow-hidden rounded-xl border border-[#ede8de] bg-white transition-all duration-200 hover:-translate-y-1 hover:border-[#c8963e]/45 hover:shadow-xl">
+    <article className="group h-full overflow-hidden rounded-xl border border-[#d8c7aa] bg-[#fffdfa] shadow-[0_12px_34px_rgba(13,27,62,0.10)] transition-all duration-200 hover:-translate-y-1 hover:border-[#c8963e]/70 hover:shadow-[0_18px_44px_rgba(13,27,62,0.16)]">
       <div className="px-5 pt-5">
-        <div className="relative mx-auto aspect-square w-full max-w-56 overflow-hidden rounded-full border border-[#ede8de] bg-[#0d1b3e] shadow-sm ring-4 ring-[#f7f3eb]">
+        <div className="relative mx-auto aspect-square w-full max-w-56 overflow-hidden rounded-full border border-[#d8c7aa] bg-[#0d1b3e] shadow-sm ring-4 ring-[#eadfce]">
           {member.image ? (
             <Image
               src={member.image}
