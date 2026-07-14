@@ -355,6 +355,15 @@ export const secretariat = [
     featured: false,
   },
   {
+    id: "anubhav-singh",
+    name: "Anubhav Singh",
+    title: "Director of External Affairs",
+    image: "/secretariat/anubhav-singh.png",
+    initials: "AS",
+    flag: null,
+    featured: false,
+  },
+  {
     id: "tanu-priya",
     name: "Tanu Priya",
     title: "Co Director of Delegate Affairs",

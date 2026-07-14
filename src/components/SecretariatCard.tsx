@@ -10,6 +10,8 @@ export default function SecretariatCard({
   member: SecretariatMember;
   priority?: boolean;
 }) {
+  const isGarima = member.id === "garima-singh";
+
   return (
     <article className="group h-full overflow-hidden rounded-xl border border-[#d8c7aa] bg-[#fffdfa] shadow-[0_12px_34px_rgba(13,27,62,0.10)] transition-all duration-200 hover:-translate-y-1 hover:border-[#c8963e]/70 hover:shadow-[0_18px_44px_rgba(13,27,62,0.16)]">
       <div className="px-5 pt-5">
@@ -20,7 +22,10 @@ export default function SecretariatCard({
               alt={`${member.name}, ${member.title}`}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
+              className={`object-cover object-center transition-transform duration-300 ${
+                isGarima ? "scale-[2.05] group-hover:scale-[2.12]" : "group-hover:scale-[1.03]"
+              }`}
+              style={isGarima ? { objectPosition: "52% 58%" } : undefined}
               priority={priority}
             />
           ) : (
