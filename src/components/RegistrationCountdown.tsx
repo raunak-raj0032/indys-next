@@ -2,10 +2,9 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { CSSProperties } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import FadeIn from "./FadeIn";
-
-const registrationOpenAt = new Date("2026-08-15T00:00:00+05:30").getTime();
+import { registrationOpenAtMs } from "@/lib/registration";
 
 type TimeLeft = {
   days: number;
@@ -14,8 +13,8 @@ type TimeLeft = {
   seconds: number;
 };
 
-function getTimeLeft(): TimeLeft {
-  const remaining = Math.max(0, registrationOpenAt - Date.now());
+function getTimeLeft(nowMs: number): TimeLeft {
+  const remaining = Math.max(0, registrationOpenAtMs - nowMs);
   const totalSeconds = Math.floor(remaining / 1000);
 
   return {
@@ -31,11 +30,60 @@ function format(value: number) {
 }
 
 export default function RegistrationCountdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => getTimeLeft());
+  const serverOffsetMsRef = useRef(0);
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => getTimeLeft(Date.now()));
 
   useEffect(() => {
-    const timer = window.setInterval(() => setTimeLeft(getTimeLeft()), 1000);
-    return () => window.clearInterval(timer);
+    const controller = new AbortController();
+    let isMounted = true;
+
+    const tick = () => {
+      setTimeLeft(getTimeLeft(Date.now() + serverOffsetMsRef.current));
+    };
+
+    const syncWithServerTime = async () => {
+      const clientRequestAt = Date.now();
+
+      try {
+        const response = await fetch("/api/registration-time", {
+          cache: "no-store",
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          return;
+        }
+
+        const data = (await response.json()) as { serverTimeMs?: number };
+        const clientResponseAt = Date.now();
+
+        if (typeof data.serverTimeMs !== "number" || !Number.isFinite(data.serverTimeMs)) {
+          return;
+        }
+
+        const roundTripMs = clientResponseAt - clientRequestAt;
+        serverOffsetMsRef.current = data.serverTimeMs + roundTripMs / 2 - clientResponseAt;
+
+        if (isMounted) {
+          tick();
+        }
+      } catch (error) {
+        if ((error as DOMException).name !== "AbortError") {
+          return;
+        }
+      }
+    };
+
+    void syncWithServerTime();
+    const timer = window.setInterval(tick, 1000);
+    const syncTimer = window.setInterval(() => void syncWithServerTime(), 60_000);
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+      window.clearInterval(timer);
+      window.clearInterval(syncTimer);
+    };
   }, []);
 
   const units = useMemo(
