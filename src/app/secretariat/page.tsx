@@ -9,7 +9,8 @@ import FadeIn from "@/components/FadeIn";
 import { createMetadata, jsonLd, secretariatJsonLd } from "@/lib/seo";
 
 const bannerSecretariat = secretariat.filter(
-  (member) => !["anubhav-singh", "tanu-priya", "garima-singh"].includes(member.id),
+  (member) =>
+    !["anubhav-singh", "nikhil-mohan", "tanu-priya", "garima-singh"].includes(member.id),
 );
 
 export const metadata: Metadata = createMetadata({
