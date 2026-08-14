@@ -30,7 +30,7 @@ function format(value: number) {
 }
 
 export default function RegistrationCountdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => getTimeLeft(Date.now()));
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -82,7 +82,7 @@ export default function RegistrationCountdown() {
 
     void syncWithServerTime();
     const timer = window.setInterval(tick, 1000);
-    const syncTimer = window.setInterval(() => void syncWithServerTime(), 5 * 60 * 1000);
+    const syncTimer = window.setInterval(() => void syncWithServerTime(), 60 * 1000);
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {
         void syncWithServerTime();
@@ -100,16 +100,16 @@ export default function RegistrationCountdown() {
   }, []);
 
   const units = useMemo(
-    () => [
+    () => timeLeft ? [
       { label: "Days", value: format(timeLeft.days) },
       { label: "Hours", value: format(timeLeft.hours) },
       { label: "Minutes", value: format(timeLeft.minutes) },
       { label: "Seconds", value: format(timeLeft.seconds) },
-    ],
+    ] : [],
     [timeLeft],
   );
 
-  const isOpen = Object.values(timeLeft).every((value) => value === 0);
+  const isOpen = timeLeft !== null && Object.values(timeLeft).every((value) => value === 0);
 
   return (
     <section
@@ -138,20 +138,26 @@ export default function RegistrationCountdown() {
             </p>
           </div>
 
-          <div className="flex flex-nowrap items-stretch justify-center gap-1 overflow-visible sm:gap-3 md:gap-4" aria-live="polite">
-            {units.map((unit, index) => (
-              <div key={unit.label} className="flex min-w-0 items-stretch gap-1 sm:gap-3 md:gap-4">
-                {index > 0 && (
-                  <span
-                    className="flex items-center pb-5 font-[family-name:var(--font-serif)] text-2xl font-black leading-none text-[#e8b96a] sm:pb-9 sm:text-5xl md:pb-10 md:text-6xl"
-                    aria-hidden="true"
-                  >
-                    :
-                  </span>
-                )}
-                <TimeBlock label={unit.label} value={unit.value} />
-              </div>
-            ))}
+          <div className="flex min-h-24 flex-nowrap items-center justify-center gap-1 overflow-visible sm:min-h-40 sm:gap-3 md:gap-4" aria-live="polite">
+            {timeLeft === null ? (
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#e8b96a]">
+                Syncing official time…
+              </p>
+            ) : (
+              units.map((unit, index) => (
+                <div key={unit.label} className="flex min-w-0 items-stretch gap-1 sm:gap-3 md:gap-4">
+                  {index > 0 && (
+                    <span
+                      className="flex items-center pb-5 font-[family-name:var(--font-serif)] text-2xl font-black leading-none text-[#e8b96a] sm:pb-9 sm:text-5xl md:pb-10 md:text-6xl"
+                      aria-hidden="true"
+                    >
+                      :
+                    </span>
+                  )}
+                  <TimeBlock label={unit.label} value={unit.value} />
+                </div>
+              ))
+            )}
           </div>
 
           {isOpen && (

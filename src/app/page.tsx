@@ -10,6 +10,7 @@ import Dates from "@/components/Dates";
 import Partners from "@/components/Partners";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import TimeGate from "@/components/TimeGate";
 import {
   baseOrganizationJsonLd,
   eventJsonLd,
@@ -20,7 +21,7 @@ import {
 
 export default function Home() {
   return (
-    <>
+    <TimeGate>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -46,6 +47,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </TimeGate>
   );
 }
