@@ -33,14 +33,69 @@ export default function RegistrationCountdown() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => getTimeLeft(Date.now()));
 
   useEffect(() => {
+    let isMounted = true;
+    let syncedServerTimeMs = Date.now();
+    let syncedPerformanceMs = performance.now();
+
+    const nowMs = () => syncedServerTimeMs + (performance.now() - syncedPerformanceMs);
+
     const tick = () => {
-      setTimeLeft(getTimeLeft(Date.now()));
+      if (isMounted) {
+        setTimeLeft(getTimeLeft(nowMs()));
+      }
     };
 
+    const syncWithServerTime = async () => {
+      const controller = new AbortController();
+      const requestPerformanceMs = performance.now();
+
+      try {
+        const response = await fetch("/api/registration-time", {
+          cache: "no-store",
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          return;
+        }
+
+        const data = (await response.json()) as { serverTimeMs?: number };
+        const responsePerformanceMs = performance.now();
+
+        if (typeof data.serverTimeMs !== "number" || !Number.isFinite(data.serverTimeMs)) {
+          return;
+        }
+
+        // Treat the server timestamp as the time at the midpoint of the request.
+        // performance.now() keeps the countdown stable if the system clock changes.
+        syncedServerTimeMs = data.serverTimeMs;
+        syncedPerformanceMs = requestPerformanceMs + (responsePerformanceMs - requestPerformanceMs) / 2;
+        tick();
+      } catch (error) {
+        if ((error as DOMException).name !== "AbortError") {
+          return;
+        }
+      } finally {
+        controller.abort();
+      }
+    };
+
+    void syncWithServerTime();
     const timer = window.setInterval(tick, 1000);
+    const syncTimer = window.setInterval(() => void syncWithServerTime(), 5 * 60 * 1000);
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        void syncWithServerTime();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
+      isMounted = false;
       window.clearInterval(timer);
+      window.clearInterval(syncTimer);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
 
@@ -76,7 +131,7 @@ export default function RegistrationCountdown() {
               id="registration-countdown-title"
               className="font-[family-name:var(--font-serif)] text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl"
             >
-              Delegate registrations open on 15 August 2026.
+              Delegate registrations open on 15 August 2026 at 8:00 PM IST.
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/78 sm:text-base md:text-lg">
               The registration desk is currently preparing for launch. Mark your calendars and prepare to secure your spot.
