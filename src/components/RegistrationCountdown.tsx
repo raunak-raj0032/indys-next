@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useState } from "react";
 import FadeIn from "./FadeIn";
+import { useTimeSync } from "./TimeGate";
 import { registrationOpenAtMs } from "@/lib/registration";
 
 type TimeLeft = {
@@ -30,14 +31,13 @@ function format(value: number) {
 }
 
 export default function RegistrationCountdown() {
+  const timeSync = useTimeSync();
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
     let isMounted = true;
-    let syncedServerTimeMs = Date.now();
-    let syncedPerformanceMs = performance.now();
 
-    const nowMs = () => syncedServerTimeMs + (performance.now() - syncedPerformanceMs);
+    const nowMs = () => timeSync.serverTimeMs + (performance.now() - timeSync.syncedPerformanceMs);
 
     const tick = () => {
       if (isMounted) {
@@ -45,59 +45,14 @@ export default function RegistrationCountdown() {
       }
     };
 
-    const syncWithServerTime = async () => {
-      const controller = new AbortController();
-      const requestPerformanceMs = performance.now();
-
-      try {
-        const response = await fetch("/api/registration-time", {
-          cache: "no-store",
-          signal: controller.signal,
-        });
-
-        if (!response.ok) {
-          return;
-        }
-
-        const data = (await response.json()) as { serverTimeMs?: number };
-        const responsePerformanceMs = performance.now();
-
-        if (typeof data.serverTimeMs !== "number" || !Number.isFinite(data.serverTimeMs)) {
-          return;
-        }
-
-        // Treat the server timestamp as the time at the midpoint of the request.
-        // performance.now() keeps the countdown stable if the system clock changes.
-        syncedServerTimeMs = data.serverTimeMs;
-        syncedPerformanceMs = requestPerformanceMs + (responsePerformanceMs - requestPerformanceMs) / 2;
-        tick();
-      } catch (error) {
-        if ((error as DOMException).name !== "AbortError") {
-          return;
-        }
-      } finally {
-        controller.abort();
-      }
-    };
-
-    void syncWithServerTime();
+    tick();
     const timer = window.setInterval(tick, 1000);
-    const syncTimer = window.setInterval(() => void syncWithServerTime(), 60 * 1000);
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible") {
-        void syncWithServerTime();
-      }
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       isMounted = false;
       window.clearInterval(timer);
-      window.clearInterval(syncTimer);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, []);
+  }, [timeSync]);
 
   const units = useMemo(
     () => timeLeft ? [

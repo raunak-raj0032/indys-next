@@ -1,17 +1,45 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+
+export type TimeSync = {
+  serverTimeMs: number;
+  syncedPerformanceMs: number;
+};
+
+export const TimeSyncContext = createContext<TimeSync | null>(null);
+
+export function useTimeSync() {
+  const timeSync = useContext(TimeSyncContext);
+
+  if (!timeSync) {
+    throw new Error("useTimeSync must be used inside TimeGate");
+  }
+
+  return timeSync;
+}
 
 type TimeGateProps = {
   children: React.ReactNode;
 };
 
 export default function TimeGate({ children }: TimeGateProps) {
-  const [isSynced, setIsSynced] = useState(false);
+  const [timeSync, setTimeSync] = useState<TimeSync | null>(null);
 
   useEffect(() => {
     let isMounted = true;
     let isSyncing = false;
+    let retryDelayMs = 1000;
+    let retryTimer: number | undefined;
+
+    const scheduleRetry = () => {
+      if (!isMounted) {
+        return;
+      }
+
+      retryTimer = window.setTimeout(() => void syncTime(), retryDelayMs);
+      retryDelayMs = Math.min(retryDelayMs * 2, 30_000);
+    };
 
     const syncTime = async () => {
       if (!isMounted || isSyncing) {
@@ -19,34 +47,42 @@ export default function TimeGate({ children }: TimeGateProps) {
       }
 
       isSyncing = true;
+      const requestPerformanceMs = performance.now();
 
       try {
         const response = await fetch("/api/registration-time", {
           cache: "no-store",
         });
         const data = (await response.json()) as { serverTimeMs?: number };
+        const responsePerformanceMs = performance.now();
 
         if (response.ok && typeof data.serverTimeMs === "number" && Number.isFinite(data.serverTimeMs) && isMounted) {
-          setIsSynced(true);
-          window.clearInterval(retryTimer);
+          setTimeSync({
+            serverTimeMs: data.serverTimeMs,
+            syncedPerformanceMs: requestPerformanceMs + (responsePerformanceMs - requestPerformanceMs) / 2,
+          });
+          return;
         }
+
+        scheduleRetry();
       } catch {
-        // Retry until the authoritative time endpoint is reachable.
+        scheduleRetry();
       } finally {
         isSyncing = false;
       }
     };
 
     void syncTime();
-    const retryTimer = window.setInterval(() => void syncTime(), 1000);
 
     return () => {
       isMounted = false;
-      window.clearInterval(retryTimer);
+      if (retryTimer !== undefined) {
+        window.clearTimeout(retryTimer);
+      }
     };
   }, []);
 
-  if (!isSynced) {
+  if (!timeSync) {
     return (
       <main
         className="flex min-h-screen items-center justify-center bg-[#071225] text-white"
@@ -58,5 +94,5 @@ export default function TimeGate({ children }: TimeGateProps) {
     );
   }
 
-  return children;
+  return <TimeSyncContext.Provider value={timeSync}>{children}</TimeSyncContext.Provider>;
 }
