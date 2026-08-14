@@ -11,8 +11,15 @@ export default function TimeGate({ children }: TimeGateProps) {
 
   useEffect(() => {
     let isMounted = true;
+    let isSyncing = false;
 
     const syncTime = async () => {
+      if (!isMounted || isSyncing) {
+        return;
+      }
+
+      isSyncing = true;
+
       try {
         const response = await fetch("/api/registration-time", {
           cache: "no-store",
@@ -21,9 +28,12 @@ export default function TimeGate({ children }: TimeGateProps) {
 
         if (response.ok && typeof data.serverTimeMs === "number" && Number.isFinite(data.serverTimeMs) && isMounted) {
           setIsSynced(true);
+          window.clearInterval(retryTimer);
         }
       } catch {
         // Retry until the authoritative time endpoint is reachable.
+      } finally {
+        isSyncing = false;
       }
     };
 
@@ -43,12 +53,7 @@ export default function TimeGate({ children }: TimeGateProps) {
         aria-busy="true"
         aria-label="Synchronizing official time"
       >
-        <div className="flex flex-col items-center gap-5 text-center">
-          <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#c8963e]/30 border-t-[#e8b96a]" aria-hidden="true" />
-          <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#e8b96a]">
-            Synchronizing official time…
-          </p>
-        </div>
+        <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#c8963e]/30 border-t-[#e8b96a]" aria-hidden="true" />
       </main>
     );
   }
