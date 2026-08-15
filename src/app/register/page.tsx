@@ -48,7 +48,7 @@ export default function RegisterPage() {
           <div className="mt-14">
             <p className="text-xs font-extrabold uppercase tracking-[0.28em] text-[#e8b96a]">Choose your registration path</p>
             <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl font-semibold leading-[0.95] tracking-[-0.03em] text-[#f7f3eb] sm:text-6xl">Your seat at the table starts here.</h1>
-            <p className="mx-auto mt-6 max-w-md text-[1.05rem] leading-7 text-white/65">Select the form that matches your location. Both forms open in a new tab.</p>
+            <p className="mx-auto mt-6 max-w-md text-[1.05rem] leading-7 text-white/65">Find the committee that matches your voice, ambition, and style of diplomacy—and take your place at the Indo–Nepal Diplomatic Youth Summit.</p>
           </div>
         </header>
 

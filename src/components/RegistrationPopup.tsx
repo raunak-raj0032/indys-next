@@ -27,7 +27,7 @@ export default function RegistrationPopup() {
     const timer = window.setTimeout(() => {
       rememberPopup();
       setIsOpen(true);
-    }, 800);
+    }, 15_000);
 
     return () => window.clearTimeout(timer);
   }, []);
