@@ -17,7 +17,9 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [matrixOpen, setMatrixOpen] = useState(false);
   const resourcesRef = useRef<HTMLLIElement>(null);
+  const matrixRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -29,6 +31,9 @@ export default function Nav() {
     const handler = (e: MouseEvent) => {
       if (resourcesRef.current && !resourcesRef.current.contains(e.target as Node)) {
         setResourcesOpen(false);
+      }
+      if (matrixRef.current && !matrixRef.current.contains(e.target as Node)) {
+        setMatrixOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -123,6 +128,39 @@ export default function Nav() {
             )}
           </li>
 
+          <li className="relative" ref={matrixRef}>
+            <button
+              onClick={() => setMatrixOpen((v) => !v)}
+              className="flex items-center gap-1.5 text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+              aria-expanded={matrixOpen}
+            >
+              Portfolio Matrix
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+                className={`transition-transform ${matrixOpen ? "rotate-180" : ""}`}
+              >
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {matrixOpen && (
+              <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-64 rounded-xl border border-[#c8963e]/20 bg-[#0d1b3e] p-2 shadow-2xl shadow-black/40">
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1OZLgTOBqVHnCInLgcerF7fVJNjt0IIHuFMGm2Sb61z4/edit?usp=sharing"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMatrixOpen(false)}
+                  className="block rounded-lg px-3 py-2 text-sm text-white/85 transition-colors hover:bg-white/5 hover:text-[#e8b96a]"
+                >
+                  Open Portfolio Matrix
+                </a>
+              </div>
+            )}
+          </li>
+
           {links.slice(1).map((l) => (
             <li key={l.href}>
               <a
@@ -194,6 +232,33 @@ export default function Nav() {
                 </Link>
               ))}
             </div>
+          </div>
+
+          <span className="w-full h-px bg-white/10" />
+
+          <div>
+            <button
+              onClick={() => setMatrixOpen((v) => !v)}
+              className="flex w-full items-center justify-between text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+              aria-expanded={matrixOpen}
+            >
+              Portfolio Matrix
+              <span aria-hidden="true" className={`text-[#c8963e] transition-transform ${matrixOpen ? "rotate-180" : ""}`}>⌄</span>
+            </button>
+            {matrixOpen && (
+              <a
+                href="https://docs.google.com/spreadsheets/d/1OZLgTOBqVHnCInLgcerF7fVJNjt0IIHuFMGm2Sb61z4/edit?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => {
+                  setMatrixOpen(false);
+                  setOpen(false);
+                }}
+                className="mt-2 block pl-3 text-sm text-white/70 transition-colors hover:text-[#e8b96a]"
+              >
+                Open Portfolio Matrix
+              </a>
+            )}
           </div>
 
           <span className="w-full h-px bg-white/10" />

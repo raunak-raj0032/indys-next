@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { committees } from "@/lib/data";
 
 const links = [
   { href: "/#about", label: "About" },
@@ -15,8 +14,8 @@ const links = [
 export default function CommitteeNav({ committeeName }: { committeeName: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [committeesOpen, setCommitteesOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [matrixOpen, setMatrixOpen] = useState(false);
+  const matrixRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -26,8 +25,8 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setCommitteesOpen(false);
+      if (matrixRef.current && !matrixRef.current.contains(e.target as Node)) {
+        setMatrixOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -62,53 +61,42 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
           </span>
           <span className="hidden lg:block w-px h-4 bg-white/15" />
 
-          {/* Committees dropdown */}
-          <div className="relative" ref={dropdownRef}>
+          <Link
+            href="/committees"
+            className="text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
+          >
+            Committees
+          </Link>
+
+          <div className="relative" ref={matrixRef}>
             <button
-              onClick={() => setCommitteesOpen((v) => !v)}
+              onClick={() => setMatrixOpen((v) => !v)}
               className="flex items-center gap-1.5 text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
-              aria-expanded={committeesOpen}
+              aria-expanded={matrixOpen}
             >
-              Committees
+              Portfolio Matrix
               <svg
                 width="10"
                 height="10"
                 viewBox="0 0 10 10"
                 fill="none"
-                className={`transition-transform ${committeesOpen ? "rotate-180" : ""}`}
+                className={`transition-transform ${matrixOpen ? "rotate-180" : ""}`}
               >
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
 
-            {committeesOpen && (
-              <div className="absolute right-0 mt-3 w-72 max-h-[70vh] overflow-y-auto rounded-xl border border-[#c8963e]/20 bg-[#0d1b3e] shadow-2xl shadow-black/40 p-2">
-                {committees.map((c) => (
-                  <Link
-                    key={c.id}
-                    href={`/committees/${c.id}`}
-                    onClick={() => setCommitteesOpen(false)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-white/5 transition-colors"
-                  >
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/95 p-1">
-                      <Image
-                        src={c.logo}
-                        alt={c.logoAlt}
-                        width={28}
-                        height={28}
-                        className="max-h-full w-auto object-contain"
-                      />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-white/85 text-sm font-medium leading-tight truncate">
-                        {c.abbr}
-                      </span>
-                      <span className="block text-white/88 text-xs leading-tight truncate">
-                        {c.name}
-                      </span>
-                    </span>
-                  </Link>
-                ))}
+            {matrixOpen && (
+              <div className="absolute right-0 mt-3 w-64 rounded-xl border border-[#c8963e]/20 bg-[#0d1b3e] p-2 shadow-2xl shadow-black/40">
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1OZLgTOBqVHnCInLgcerF7fVJNjt0IIHuFMGm2Sb61z4/edit?usp=sharing"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMatrixOpen(false)}
+                  className="block rounded-lg px-3 py-2 text-sm text-white/85 transition-colors hover:bg-white/5 hover:text-[#e8b96a]"
+                >
+                  Open Portfolio Matrix
+                </a>
               </div>
             )}
           </div>
@@ -141,32 +129,37 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
 
       {open && (
         <div className="md:hidden bg-[#0d1b3e] border-t border-[#c8963e]/20 px-6 py-4 flex flex-col gap-4 max-h-[80vh] overflow-y-auto">
-          {/* Committees list */}
+          <Link
+            href="/committees"
+            onClick={() => setOpen(false)}
+            className="text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+          >
+            Committees
+          </Link>
+
           <div>
-            <span className="block text-[#c8963e] text-xs font-semibold tracking-widest uppercase mb-2">
-              Committees
-            </span>
-            <div className="flex flex-col gap-2">
-              {committees.map((c) => (
-                <Link
-                  key={c.id}
-                  href={`/committees/${c.id}`}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
-                >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/95 p-1">
-                    <Image
-                      src={c.logo}
-                      alt={c.logoAlt}
-                      width={24}
-                      height={24}
-                      className="max-h-full w-auto object-contain"
-                    />
-                  </span>
-                  {c.abbr}
-                </Link>
-              ))}
-            </div>
+            <button
+              onClick={() => setMatrixOpen((v) => !v)}
+              className="flex w-full items-center justify-between text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+              aria-expanded={matrixOpen}
+            >
+              Portfolio Matrix
+              <span aria-hidden="true" className={`text-[#c8963e] transition-transform ${matrixOpen ? "rotate-180" : ""}`}>⌄</span>
+            </button>
+            {matrixOpen && (
+              <a
+                href="https://docs.google.com/spreadsheets/d/1OZLgTOBqVHnCInLgcerF7fVJNjt0IIHuFMGm2Sb61z4/edit?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => {
+                  setMatrixOpen(false);
+                  setOpen(false);
+                }}
+                className="mt-2 block pl-3 text-sm text-white/70 transition-colors hover:text-[#e8b96a]"
+              >
+                Open Portfolio Matrix
+              </a>
+            )}
           </div>
 
           <span className="w-full h-px bg-white/10" />
