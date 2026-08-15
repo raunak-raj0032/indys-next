@@ -174,9 +174,10 @@ export default function Nav() {
           <li>
             <a
               href="/register"
-              className="bg-[#c8963e] hover:bg-[#e8b96a] text-white text-sm font-semibold px-5 py-2 rounded-md transition-colors"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#e8b96a] to-[#c8963e] px-5 py-2.5 text-sm font-extrabold text-[#0d1b3e] shadow-[0_6px_18px_rgba(200,150,62,0.25)] transition duration-200 hover:-translate-y-0.5 hover:from-[#f4cf8c] hover:to-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a]"
             >
               Register
+              <span aria-hidden="true" className="text-base leading-none transition-transform group-hover:translate-x-0.5">→</span>
             </a>
           </li>
         </ul>
@@ -276,9 +277,10 @@ export default function Nav() {
           <a
             href="/register"
             onClick={() => setOpen(false)}
-            className="bg-[#c8963e] text-white text-sm font-semibold px-5 py-2 rounded-md text-center"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e8b96a] to-[#c8963e] px-5 py-2.5 text-sm font-extrabold text-[#0d1b3e] shadow-[0_6px_18px_rgba(200,150,62,0.25)] transition duration-200 hover:from-[#f4cf8c] hover:to-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a]"
           >
             Register
+            <span aria-hidden="true" className="text-base leading-none">→</span>
           </a>
         </div>
       )}
