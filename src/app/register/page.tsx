@@ -11,17 +11,19 @@ export const metadata = createMetadata({
 const registrationLinks = [
   {
     eyebrow: "Individual delegate registration",
-    title: "Register from Nepal",
-    description: "Use this form for individual delegates registering from Nepal.",
-    href: "https://forms.gle/pS3uDqjE3CiNiT9p8",
-    mark: "01",
-  },
-  {
-    eyebrow: "Individual delegate registration",
     title: "Register from India",
     description: "Use this form for individual delegates registering from India.",
     href: "https://forms.gle/ThYcCGQ4w1XnfLJx9",
-    mark: "02",
+    flag: "/flags/india.svg",
+    flagAlt: "Flag of India",
+  },
+  {
+    eyebrow: "Individual delegate registration",
+    title: "Register from Nepal",
+    description: "Use this form for individual delegates registering from Nepal.",
+    href: "https://forms.gle/pS3uDqjE3CiNiT9p8",
+    flag: "/flags/nepal.svg",
+    flagAlt: "Flag of Nepal",
   },
 ] as const;
 
@@ -73,7 +75,9 @@ export default function RegisterPage() {
               className="group block rounded-2xl border border-white/12 bg-white/[0.07] p-5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#e8b96a]/70 hover:bg-white/[0.12] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] sm:p-6"
             >
               <span className="flex items-start gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#c8963e]/55 font-mono text-sm font-bold text-[#e8b96a]">{registration.mark}</span>
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#c8963e]/55 bg-white/95 p-1">
+                  <Image src={registration.flag} alt={registration.flagAlt} width={36} height={28} className="h-7 w-8 object-contain" />
+                </span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-[0.68rem] font-extrabold uppercase tracking-[0.17em] text-[#e8b96a]">{registration.eyebrow}</span>
                   <span className="mt-1 block font-[family-name:var(--font-serif)] text-2xl font-semibold text-[#f7f3eb]">{registration.title}</span>
