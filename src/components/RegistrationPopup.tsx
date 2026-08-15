@@ -91,7 +91,7 @@ export default function RegistrationPopup() {
             onClick={() => setIsOpen(false)}
             className="inline-flex items-center justify-center rounded-lg bg-[#0d1b3e] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#132150] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c8963e]"
           >
-            Register as an individual delegate
+            Register
           </Link>
           <button
             type="button"

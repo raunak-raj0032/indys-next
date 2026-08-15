@@ -61,7 +61,7 @@ export default function SecretariatNav() {
             href="/register"
             className="rounded-md bg-[#c8963e] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#e8b96a]"
           >
-            Individual registration
+            Register
           </Link>
         </div>
 
@@ -99,7 +99,7 @@ export default function SecretariatNav() {
             onClick={() => setOpen(false)}
             className="rounded-md bg-[#c8963e] px-5 py-2 text-center text-sm font-semibold text-white"
           >
-            Individual registration
+            Register
           </Link>
         </div>
       )}

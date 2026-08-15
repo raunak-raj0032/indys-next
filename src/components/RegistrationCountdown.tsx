@@ -33,7 +33,7 @@ export default function RegistrationCountdown() {
             href="/register"
             className="inline-flex items-center justify-center rounded-lg bg-[#c8963e] px-6 py-3.5 text-center text-sm font-bold text-white shadow-lg shadow-black/20 transition-colors hover:bg-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] sm:px-8"
           >
-            Register as an individual delegate
+            Register
           </Link>
         </FadeIn>
       </div>
