@@ -111,10 +111,10 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
             </Link>
           ))}
           <Link
-            href="/#registration"
+            href="/register"
             className="bg-[#c8963e] hover:bg-[#e8b96a] text-white text-sm font-semibold px-5 py-2 rounded-md transition-colors"
           >
-            Register
+            Individual registration
           </Link>
         </div>
 
@@ -175,11 +175,11 @@ export default function CommitteeNav({ committeeName }: { committeeName: string 
             </Link>
           ))}
           <Link
-            href="/#registration"
+            href="/register"
             onClick={() => setOpen(false)}
             className="bg-[#c8963e] text-white text-sm font-semibold px-5 py-2 rounded-md text-center"
           >
-            Register
+            Individual registration
           </Link>
         </div>
       )}
