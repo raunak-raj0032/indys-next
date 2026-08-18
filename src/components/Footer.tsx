@@ -13,6 +13,16 @@ export default function Footer() {
             Model United Nations · Siliguri, India
           </p>
         </div>
+        <address className="max-w-sm not-italic text-sm leading-relaxed text-white/62">
+          <span className="mb-1 block text-xs font-bold uppercase tracking-[0.16em] text-[#e8b96a]">
+            Dr Marketing office
+          </span>
+          PRAFULLA NAGAR, CHAMPASARI, P.O:- Champasari BO, P.S:- NA,
+          <br />
+          District :- Darjeeling, Pincode :- 734003
+          <br />
+          Ward No. 46
+        </address>
         <div className="flex gap-x-5 gap-y-3 flex-wrap items-start">
           {links.map((l) => (
             <a
