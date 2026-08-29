@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { resources } from "@/lib/data";
+import { executiveBoardApplicationHref, resources } from "@/lib/data";
 import ResourceIcon from "@/components/ResourceIcon";
 
 const links = [
@@ -40,13 +40,29 @@ export default function Nav() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [open]);
+
   return (
     <nav
+      aria-label="Primary navigation"
       className={`fixed top-0 inset-x-0 z-50 border-b border-[#c8963e]/20 transition-all duration-300 ${
         scrolled ? "bg-[#0d1b3e]/98 backdrop-blur-md" : "bg-[#0d1b3e]/90 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5">
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-sm">
@@ -58,13 +74,13 @@ export default function Nav() {
               className="h-full w-full object-contain"
             />
           </span>
-          <span className="font-[family-name:var(--font-playfair)] text-xl font-bold text-white tracking-wide">
+          <span className="font-[family-name:var(--font-serif)] text-lg font-bold tracking-wide text-white sm:text-xl">
             INDYS<span className="text-[#c8963e]"> &apos;26</span>
           </span>
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden items-center gap-5 md:flex lg:gap-7">
           <li>
             <a
               href="#about"
@@ -85,7 +101,8 @@ export default function Nav() {
 
           {/* Resources dropdown */}
           <li className="relative" ref={resourcesRef}>
-            <button
+          <button
+              type="button"
               onClick={() => setResourcesOpen((v) => !v)}
               className="flex items-center gap-1.5 text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
               aria-expanded={resourcesOpen}
@@ -130,6 +147,7 @@ export default function Nav() {
 
           <li className="relative" ref={matrixRef}>
             <button
+              type="button"
               onClick={() => setMatrixOpen((v) => !v)}
               className="flex items-center gap-1.5 text-white/82 hover:text-[#e8b96a] text-sm font-medium tracking-wide transition-colors"
               aria-expanded={matrixOpen}
@@ -171,10 +189,18 @@ export default function Nav() {
               </a>
             </li>
           ))}
-          <li>
+          <li className="flex items-center gap-2">
+            <a
+              href={executiveBoardApplicationHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#e8b96a]/70 px-3.5 text-xs font-extrabold tracking-wide text-[#f4cf8c] transition duration-200 hover:-translate-y-0.5 hover:border-[#f4cf8c] hover:bg-[#e8b96a]/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] lg:px-4"
+            >
+              Executive Board
+            </a>
             <a
               href="/register"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#e8b96a] to-[#c8963e] px-5 py-2.5 text-sm font-extrabold text-[#0d1b3e] shadow-[0_6px_18px_rgba(200,150,62,0.25)] transition duration-200 hover:-translate-y-0.5 hover:from-[#f4cf8c] hover:to-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a]"
+              className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-gradient-to-r from-[#e8b96a] to-[#c8963e] px-4 text-sm font-extrabold text-[#0d1b3e] shadow-[0_6px_18px_rgba(200,150,62,0.25)] transition duration-200 hover:-translate-y-0.5 hover:from-[#f4cf8c] hover:to-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] lg:px-5"
             >
               Register
               <span aria-hidden="true" className="text-base leading-none transition-transform group-hover:translate-x-0.5">→</span>
@@ -184,9 +210,12 @@ export default function Nav() {
 
         {/* Hamburger */}
         <button
-          className="md:hidden text-white text-2xl"
+          type="button"
+          className="flex h-11 w-11 items-center justify-center rounded-full text-2xl text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8b96a] md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? "✕" : "☰"}
         </button>
@@ -194,11 +223,11 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-[#0d1b3e] border-t border-[#c8963e]/20 px-6 py-4 flex flex-col gap-4 max-h-[80vh] overflow-y-auto">
+        <div id="mobile-menu" className="flex max-h-[calc(100svh-4rem)] flex-col gap-1 overflow-y-auto border-t border-[#c8963e]/20 bg-[#0d1b3e] px-4 py-3 pb-5 sm:px-6 md:hidden">
           <a
             href="#about"
             onClick={() => setOpen(false)}
-            className="text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+            className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-white/88 transition-colors hover:bg-white/5 hover:text-[#e8b96a]"
           >
             About
           </a>
@@ -206,16 +235,16 @@ export default function Nav() {
           <Link
             href="/committees"
             onClick={() => setOpen(false)}
-            className="text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+            className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-white/88 transition-colors hover:bg-white/5 hover:text-[#e8b96a]"
           >
             Committees
           </Link>
 
-          <span className="w-full h-px bg-white/10" />
+          <span className="my-2 h-px w-full bg-white/10" />
 
           {/* Resources list */}
           <div>
-            <span className="block text-[#c8963e] text-xs font-semibold tracking-widest uppercase mb-2">
+            <span className="mb-2 block px-3 text-xs font-semibold uppercase tracking-widest text-[#c8963e]">
               Resources
             </span>
             <div className="flex flex-col gap-2">
@@ -224,7 +253,7 @@ export default function Nav() {
                   key={r.id}
                   href={`/resources/${r.id}`}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+                  className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-medium text-white/88 transition-colors hover:bg-white/5 hover:text-[#e8b96a]"
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#c8963e]/15 text-[#e8b96a]">
                     <ResourceIcon icon={r.icon} className="h-3.5 w-3.5" />
@@ -235,12 +264,13 @@ export default function Nav() {
             </div>
           </div>
 
-          <span className="w-full h-px bg-white/10" />
+          <span className="my-2 h-px w-full bg-white/10" />
 
           <div>
             <button
+              type="button"
               onClick={() => setMatrixOpen((v) => !v)}
-              className="flex w-full items-center justify-between text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+              className="flex min-h-11 w-full items-center justify-between rounded-lg px-3 text-sm font-medium text-white/88 transition-colors hover:bg-white/5 hover:text-[#e8b96a]"
               aria-expanded={matrixOpen}
             >
               Portfolio Matrix
@@ -255,33 +285,44 @@ export default function Nav() {
                   setMatrixOpen(false);
                   setOpen(false);
                 }}
-                className="mt-2 block pl-3 text-sm text-white/70 transition-colors hover:text-[#e8b96a]"
+                className="mt-1 flex min-h-11 items-center rounded-lg px-6 text-sm text-white/70 transition-colors hover:bg-white/5 hover:text-[#e8b96a]"
               >
                 Open Portfolio Matrix
               </a>
             )}
           </div>
 
-          <span className="w-full h-px bg-white/10" />
+          <span className="my-2 h-px w-full bg-white/10" />
 
           {links.slice(1).map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-white/88 hover:text-[#e8b96a] text-sm font-medium transition-colors"
+            className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-white/88 transition-colors hover:bg-white/5 hover:text-[#e8b96a]"
             >
               {l.label}
             </a>
           ))}
-          <a
-            href="/register"
-            onClick={() => setOpen(false)}
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e8b96a] to-[#c8963e] px-5 py-2.5 text-sm font-extrabold text-[#0d1b3e] shadow-[0_6px_18px_rgba(200,150,62,0.25)] transition duration-200 hover:from-[#f4cf8c] hover:to-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a]"
-          >
-            Register
-            <span aria-hidden="true" className="text-base leading-none">→</span>
-          </a>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            <a
+              href={executiveBoardApplicationHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#e8b96a]/70 px-5 text-sm font-extrabold text-[#f4cf8c] transition-colors hover:bg-[#e8b96a]/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a]"
+            >
+              Executive Board Application
+            </a>
+            <a
+              href="/register"
+              onClick={() => setOpen(false)}
+              className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e8b96a] to-[#c8963e] px-5 text-sm font-extrabold text-[#0d1b3e] shadow-[0_6px_18px_rgba(200,150,62,0.25)] transition duration-200 hover:from-[#f4cf8c] hover:to-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a]"
+            >
+              Register
+              <span aria-hidden="true" className="text-base leading-none">→</span>
+            </a>
+          </div>
         </div>
       )}
     </nav>

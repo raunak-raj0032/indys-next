@@ -392,6 +392,9 @@ export const secretariat = [
   },
 ] as const;
 
+export const executiveBoardApplicationHref =
+  "https://forms.gle/MFnRF5M2PcbtszxQ7";
+
 export const stats = [
   { num: "500+", label: "Total Delegates", sub: "Students from 30+ schools across India and Nepal" },
   { num: "11",   label: "Committees",       sub: "UN bodies, regional forums, crisis simulations and press" },

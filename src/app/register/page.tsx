@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { createMetadata } from "@/lib/seo";
+import { executiveBoardApplicationHref } from "@/lib/data";
 
 export const metadata = createMetadata({
   title: "Register for INDYS '26",
@@ -29,11 +30,11 @@ const registrationLinks = [
 
 export default function RegisterPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#071225] px-5 py-8 text-white sm:px-8 sm:py-12">
+    <main className="relative min-h-[100svh] overflow-hidden bg-[#071225] px-4 py-6 text-white sm:px-8 sm:py-12">
       <div className="pointer-events-none absolute -left-40 top-[-18rem] h-[38rem] w-[38rem] rounded-full bg-[#c8963e]/12 blur-3xl" />
       <div className="pointer-events-none absolute -right-48 bottom-[-20rem] h-[42rem] w-[42rem] rounded-full bg-[#19356b]/45 blur-3xl" />
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-xl flex-col items-center justify-center">
+      <div className="relative mx-auto flex min-h-[calc(100svh-3rem)] max-w-xl flex-col items-center justify-center">
         <header className="w-full text-center">
           <Link href="/" className="group inline-flex items-center gap-3 rounded-full text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a]">
             <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-[0_0_0_5px_rgba(200,150,62,0.16)] transition-transform group-hover:rotate-6">
@@ -47,7 +48,7 @@ export default function RegisterPage() {
 
           <div className="mt-14">
             <p className="text-xs font-extrabold uppercase tracking-[0.28em] text-[#e8b96a]">Choose your registration path</p>
-            <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl font-semibold leading-[0.95] tracking-[-0.03em] text-[#f7f3eb] sm:text-6xl">Your seat at the table starts here.</h1>
+            <h1 className="mt-4 font-[family-name:var(--font-serif)] text-[clamp(2.7rem,12vw,4rem)] font-semibold leading-[0.95] tracking-[-0.03em] text-[#f7f3eb] sm:text-6xl">Your seat at the table starts here.</h1>
             <p className="mx-auto mt-6 max-w-md text-[1.05rem] leading-7 text-white/65">Find the committee that matches your voice, ambition, and style of diplomacy—and take your place at the Indo–Nepal Diplomatic Youth Summit.</p>
           </div>
         </header>
@@ -63,6 +64,20 @@ export default function RegisterPage() {
             <span className="mt-1 block font-semibold">View the Portfolio Matrix</span>
           </span>
           <span aria-hidden="true" className="text-xl text-[#e8b96a]">↗</span>
+        </a>
+
+        <a
+          href={executiveBoardApplicationHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-4 flex w-full items-center justify-between rounded-2xl border border-[#e8b96a]/65 bg-[#c8963e]/16 px-5 py-4 text-sm text-white transition hover:-translate-y-0.5 hover:border-[#f4cf8c] hover:bg-[#c8963e]/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] sm:px-6"
+        >
+          <span>
+            <span className="block text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-[#e8b96a]">For future executive board members</span>
+            <span className="mt-1 block font-[family-name:var(--font-serif)] text-2xl font-semibold text-[#f7f3eb]">Apply for the Executive Board</span>
+            <span className="mt-1 block text-sm leading-6 text-white/60">Submit your application for an INDYS &apos;26 leadership role.</span>
+          </span>
+          <span aria-hidden="true" className="pl-3 text-2xl text-[#e8b96a] transition-transform group-hover:translate-x-1">↗</span>
         </a>
 
         <section className="mt-10 w-full space-y-4" aria-label="Registration forms">

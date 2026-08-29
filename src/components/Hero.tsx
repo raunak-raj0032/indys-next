@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { executiveBoardApplicationHref } from "@/lib/data";
 
 export default function Hero() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -17,7 +18,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-center px-4 pt-24 pb-16 sm:px-6 sm:pb-20">
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-4 pb-16 pt-24 text-center sm:px-6 sm:pb-20">
       <div className="absolute inset-0 bg-gradient-to-br from-[#080f20] via-[#0d1b3e] to-[#132150]" />
 
       <video
@@ -113,19 +114,27 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.5, delay: 0.75 }}
-          className="flex flex-col gap-3 justify-center sm:flex-row sm:flex-wrap sm:gap-4"
+          className="mx-auto flex w-full max-w-xl flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
         >
           <a
-            href="#committees"
-            className="bg-[#c8963e] hover:bg-[#e8b96a] text-white font-semibold px-6 py-3 rounded-md transition-colors text-sm tracking-wide sm:px-8 sm:py-3.5"
+            href={executiveBoardApplicationHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#c8963e] px-6 py-3 text-sm font-semibold tracking-wide text-white transition-colors hover:bg-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] sm:px-8 sm:py-3.5"
           >
-            Explore Committees
+            Executive Board Application
           </a>
           <a
-            href="#partners"
-            className="border border-white/40 hover:border-white text-white font-semibold px-6 py-3 rounded-md transition-colors text-sm tracking-wide sm:px-8 sm:py-3.5"
+            href="/register"
+            className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/40 px-6 py-3 text-sm font-semibold tracking-wide text-white transition-colors hover:border-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] sm:px-8 sm:py-3.5"
           >
-            Become a Partner
+            Register as a Delegate
+          </a>
+          <a
+            href="#committees"
+            className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-semibold tracking-wide text-white/90 transition-colors hover:border-white/70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] sm:px-8 sm:py-3.5"
+          >
+            Explore Committees
           </a>
         </motion.div>
       </div>

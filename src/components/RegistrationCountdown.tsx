@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "./FadeIn";
+import { executiveBoardApplicationHref } from "@/lib/data";
 
 export default function RegistrationCountdown() {
   return (
@@ -38,13 +39,23 @@ export default function RegistrationCountdown() {
             </div>
           </div>
 
-          <Link
-            href="/register"
-            className="group inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#e8b96a] to-[#c8963e] px-7 py-4 text-center text-sm font-extrabold text-[#0d1b3e] shadow-[0_10px_25px_rgba(200,150,62,0.28)] transition duration-200 hover:-translate-y-1 hover:from-[#f4cf8c] hover:to-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] sm:px-9"
-          >
-            Register
-            <span aria-hidden="true" className="text-xl leading-none transition-transform group-hover:translate-x-1">→</span>
-          </Link>
+          <div className="grid w-full shrink-0 gap-3 sm:grid-cols-2 lg:w-auto lg:min-w-[24rem] lg:grid-cols-1">
+            <Link
+              href="/register"
+              className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#e8b96a] to-[#c8963e] px-7 py-4 text-center text-sm font-extrabold text-[#0d1b3e] shadow-[0_10px_25px_rgba(200,150,62,0.28)] transition duration-200 hover:-translate-y-1 hover:from-[#f4cf8c] hover:to-[#e8b96a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] sm:px-9"
+            >
+              Register as a Delegate
+              <span aria-hidden="true" className="text-xl leading-none transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+            <a
+              href={executiveBoardApplicationHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#e8b96a]/70 px-7 py-4 text-center text-sm font-extrabold text-[#f4cf8c] transition duration-200 hover:-translate-y-1 hover:bg-[#e8b96a]/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e8b96a] sm:px-9"
+            >
+              Executive Board Application
+            </a>
+          </div>
         </FadeIn>
       </div>
     </section>
